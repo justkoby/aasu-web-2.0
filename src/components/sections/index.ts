@@ -1,2 +1,11 @@
-// Homepage and page-level sections will be exported here.
-export {}
+export { AboutSection } from './AboutSection'
+export { ContinentalReachSection } from './ContinentalReachSection'
+export { FinalCtaSection } from './FinalCtaSection'
+export { HeroSection } from './HeroSection'
+export { KnowledgeHubSection } from './KnowledgeHubSection'
+export { MembershipSection } from './MembershipSection'
+export { NewsMediaSection } from './NewsMediaSection'
+export { OpportunitiesSection } from './OpportunitiesSection'
+export { PartnershipsSection } from './PartnershipsSection'
+export { ProgrammesSection } from './ProgrammesSection'
+export { StrategicPrioritiesSection } from './StrategicPrioritiesSection'

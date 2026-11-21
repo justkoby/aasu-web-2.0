@@ -1,2 +1,3 @@
-// Reusable UI primitives (buttons, badges, cards, modals) will be exported here.
-export {}
+export { Button } from './Button'
+export { Reveal } from './Reveal'
+export { SectionHeading } from './SectionHeading'
