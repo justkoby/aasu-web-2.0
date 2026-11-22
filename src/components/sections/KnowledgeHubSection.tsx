@@ -12,7 +12,6 @@ export function KnowledgeHubSection() {
       <Container>
         <Reveal>
           <SectionHeading
-            eyebrow="Knowledge Hub"
             title="Research, Toolkits & Publications."
             action={
               <Button href="#knowledge-hub" variant="outline" size="sm">

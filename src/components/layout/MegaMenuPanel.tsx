@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowUpRight, X } from 'lucide-react'
+import { AppLink } from '@/components/ui/AppLink'
 import type { MegaMenuCategory } from '@/data/navigation'
 import { AASU_EASE } from '@/lib/motion'
 
@@ -69,10 +70,9 @@ export function MegaMenuPanel({
                   <ul className="mt-3 space-y-1">
                     {group.links.map((link) => (
                       <li key={link.label}>
-                        <a
+                        <AppLink
                           href={link.href}
-                          target={link.external ? '_blank' : undefined}
-                          rel={link.external ? 'noopener noreferrer' : undefined}
+                          external={link.external}
                           onClick={onClose}
                           className="group block rounded-xl px-3 py-2 transition-colors hover:bg-surface-card"
                         >
@@ -90,7 +90,7 @@ export function MegaMenuPanel({
                               {link.description}
                             </p>
                           )}
-                        </a>
+                        </AppLink>
                       </li>
                     ))}
                   </ul>
@@ -113,11 +113,10 @@ export function MegaMenuPanel({
               </h3>
               <div className="mt-4 space-y-3.5">
                 {category.featured.map((card) => (
-                  <a
+                  <AppLink
                     key={card.title}
                     href={card.href}
-                    target={card.external ? '_blank' : undefined}
-                    rel={card.external ? 'noopener noreferrer' : undefined}
+                    external={card.external}
                     onClick={onClose}
                     className="group block rounded-2xl border border-border-subtle bg-surface-card p-5 transition-all duration-200 hover:border-ink/25 hover:shadow-md"
                   >
@@ -138,7 +137,7 @@ export function MegaMenuPanel({
                         aria-hidden="true"
                       />
                     </div>
-                  </a>
+                  </AppLink>
                 ))}
               </div>
             </div>

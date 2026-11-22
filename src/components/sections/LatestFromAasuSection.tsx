@@ -24,8 +24,7 @@ export function LatestFromAasuSection() {
       <Container>
         <Reveal>
           <SectionHeading
-            eyebrow="Latest from AASU"
-            title="News, Statements, Events & Opportunities."
+            title="Latest from Africa's Student Movement."
             action={
               <div className="flex flex-wrap gap-2.5">
                 <Button href="#latest" variant="dark" size="sm">
@@ -39,7 +38,7 @@ export function LatestFromAasuSection() {
           />
         </Reveal>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-12">
+        <div className="mt-10 grid items-start gap-6 lg:grid-cols-12">
           {/* Left Column (7 cols): Featured Story + Supporting Stories */}
           <div className="space-y-5 lg:col-span-7">
             <Reveal>
@@ -113,9 +112,8 @@ export function LatestFromAasuSection() {
             </div>
           </div>
 
-          {/* Right Column (5 cols): Official Statement + Events & Opportunities */}
-          <div className="flex flex-col gap-5 lg:col-span-5">
-            {/* Compact Official Statement Card */}
+          {/* Right Column (5 cols): Naturally Sized Official Statement + Events & Opportunities */}
+          <div className="flex flex-col gap-5 self-start lg:col-span-5">
             {latestStatement && (
               <Reveal>
                 <a
@@ -142,62 +140,59 @@ export function LatestFromAasuSection() {
               </Reveal>
             )}
 
-            {/* Events & Opportunities Compact Visual List */}
-            <Reveal delay={0.06} className="flex-1">
+            <Reveal delay={0.06}>
               <div
                 id="opportunities"
-                className="flex h-full flex-col justify-between rounded-3xl border border-border-subtle bg-surface-card p-6"
+                className="rounded-3xl border border-border-subtle bg-surface-card p-6"
               >
-                <div>
-                  <div className="flex items-center justify-between border-b border-border-subtle pb-4">
-                    <div className="flex items-center gap-2">
-                      <CalendarDays
-                        className="h-4 w-4 text-aasu-red"
-                        strokeWidth={1.75}
+                <div className="flex items-center justify-between border-b border-border-subtle pb-4">
+                  <div className="flex items-center gap-2">
+                    <CalendarDays
+                      className="h-4 w-4 text-aasu-red"
+                      strokeWidth={1.75}
+                      aria-hidden="true"
+                    />
+                    <h3 className="font-display text-sm font-bold uppercase tracking-[0.14em] text-ink">
+                      Events &amp; Opportunities
+                    </h3>
+                  </div>
+                  <span className="text-xs text-ink-muted">2026</span>
+                </div>
+
+                <div className="mt-4 divide-y divide-border-subtle">
+                  {VERIFIED_OPPORTUNITIES.map((item) => (
+                    <a
+                      key={item.id}
+                      href={item.href}
+                      target={item.external ? '_blank' : undefined}
+                      rel={item.external ? 'noopener noreferrer' : undefined}
+                      className="group flex items-start justify-between gap-4 py-3.5 first:pt-0 last:pb-0"
+                    >
+                      <div>
+                        <div className="flex flex-wrap items-center gap-2 text-[11px]">
+                          <span className="font-semibold uppercase tracking-[0.12em] text-aasu-red">
+                            {item.type}
+                          </span>
+                          <span className="text-ink-muted" aria-hidden="true">
+                            ·
+                          </span>
+                          <span className="font-medium text-ink-secondary">
+                            {item.dateLabel}
+                          </span>
+                        </div>
+                        <p className="mt-1 font-display text-sm font-bold leading-snug text-ink transition-colors group-hover:text-aasu-red">
+                          {item.title}
+                        </p>
+                        <p className="mt-0.5 text-xs text-ink-secondary">
+                          {item.locationOrMeta}
+                        </p>
+                      </div>
+                      <ArrowUpRight
+                        className="mt-1 h-4 w-4 shrink-0 text-ink-muted transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-aasu-red"
                         aria-hidden="true"
                       />
-                      <h3 className="font-display text-sm font-bold uppercase tracking-[0.14em] text-ink">
-                        Events &amp; Opportunities
-                      </h3>
-                    </div>
-                    <span className="text-xs text-ink-muted">2026</span>
-                  </div>
-
-                  <div className="mt-4 divide-y divide-border-subtle">
-                    {VERIFIED_OPPORTUNITIES.map((item) => (
-                      <a
-                        key={item.id}
-                        href={item.href}
-                        target={item.external ? '_blank' : undefined}
-                        rel={item.external ? 'noopener noreferrer' : undefined}
-                        className="group flex items-start justify-between gap-4 py-3.5 first:pt-0 last:pb-0"
-                      >
-                        <div>
-                          <div className="flex flex-wrap items-center gap-2 text-[11px]">
-                            <span className="font-semibold uppercase tracking-[0.12em] text-aasu-red">
-                              {item.type}
-                            </span>
-                            <span className="text-ink-muted" aria-hidden="true">
-                              ·
-                            </span>
-                            <span className="font-medium text-ink-secondary">
-                              {item.dateLabel}
-                            </span>
-                          </div>
-                          <p className="mt-1 font-display text-sm font-bold leading-snug text-ink transition-colors group-hover:text-aasu-red">
-                            {item.title}
-                          </p>
-                          <p className="mt-0.5 text-xs text-ink-secondary">
-                            {item.locationOrMeta}
-                          </p>
-                        </div>
-                        <ArrowUpRight
-                          className="mt-1 h-4 w-4 shrink-0 text-ink-muted transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-aasu-red"
-                          aria-hidden="true"
-                        />
-                      </a>
-                    ))}
-                  </div>
+                    </a>
+                  ))}
                 </div>
               </div>
             </Reveal>

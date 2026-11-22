@@ -2,7 +2,7 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Local Lufga Typography Assets */
+/* Local Licensed Lufga Typography Assets */
 @font-face {
   font-family: "Lufga";
   src: url("/fonts/lufga/LufgaRegular.woff2") format("woff2");
@@ -44,9 +44,10 @@
 }
 
 :root {
-  /* Active Display Font Token (switched globally via data-font-pair) */
+  /* Active Typography Tokens (Option A default: Lufga + Inter) */
   --font-display-family: "Lufga", "Manrope", ui-sans-serif, system-ui, sans-serif;
   --font-body-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --body-letter-spacing: 0em;
 
   /* Light Theme Semantic Tokens */
   --surface-bg: #ffffff;
@@ -59,8 +60,18 @@
   --text-muted: #737373;
 }
 
-html[data-font-pair="manrope"] {
+/* Option B: Lufga Headings + Lufga Body */
+html[data-font-pair="lufga-lufga"] {
+  --font-display-family: "Lufga", "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-body-family: "Lufga", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --body-letter-spacing: -0.005em;
+}
+
+/* Option C: Manrope Headings + Inter Body */
+html[data-font-pair="manrope-inter"] {
   --font-display-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-body-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --body-letter-spacing: 0em;
 }
 
 html.dark {
@@ -102,6 +113,7 @@ html.dark {
 @layer base {
   html {
     font-family: var(--font-sans);
+    letter-spacing: var(--body-letter-spacing);
     color: var(--text-primary);
     background-color: var(--surface-bg);
     scroll-behavior: smooth;

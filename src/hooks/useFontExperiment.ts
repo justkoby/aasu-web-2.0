@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useState } from 'react'
 
-export type FontPair = 'lufga' | 'manrope'
+export type FontPair = 'lufga-inter' | 'lufga-lufga' | 'manrope-inter'
 
 const STORAGE_KEY = 'aasu-font-pair'
 
 function getInitialFontPair(): FontPair {
-  if (typeof window === 'undefined') return 'lufga'
-  return document.documentElement.dataset.fontPair === 'manrope'
-    ? 'manrope'
-    : 'lufga'
+  if (typeof window === 'undefined') return 'lufga-inter'
+  const val = document.documentElement.dataset.fontPair
+  if (val === 'lufga-lufga' || val === 'manrope-inter') return val
+  return 'lufga-inter'
 }
 
 export function useFontExperiment() {

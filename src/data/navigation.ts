@@ -35,24 +35,29 @@ export const MEGA_MENU_CATEGORIES: MegaMenuCategory[] = [
   {
     id: 'about',
     label: 'About',
-    href: '#at-a-glance',
+    href: '/about',
     groups: [
       {
         heading: 'Who We Are',
         links: [
           {
-            label: 'Overview of AASU',
-            href: '#at-a-glance',
-            description: 'Institutional identity, vision, mission, values & mandate',
+            label: 'About AASU Overview',
+            href: '/about',
+            description: 'Explore AASU identity, legacy, governance and partners',
+          },
+          {
+            label: 'Who We Are',
+            href: '/about/who-we-are',
+            description: 'Institutional identity, vision, mission, core values & mandate',
           },
           {
             label: 'History & Legacy',
-            href: '#at-a-glance',
+            href: '/about/history-legacy',
             description: 'Founded in Kumasi in 1972 and five decades of solidarity',
           },
           {
             label: 'Partners & Institutional Relations',
-            href: '#partnerships',
+            href: '/about/partners',
             description: 'Continental and international cooperation frameworks',
           },
         ],
@@ -61,19 +66,19 @@ export const MEGA_MENU_CATEGORIES: MegaMenuCategory[] = [
         heading: 'Governance',
         links: [
           {
-            label: 'Congress & Governance Structures',
-            href: '#at-a-glance',
+            label: 'Governance Overview & Congress',
+            href: '/about/governance',
             description: "The Union's highest democratic decision-making organ",
           },
           {
-            label: 'Executive Committee',
-            href: '#at-a-glance',
+            label: 'Executive Committee (2026-2029)',
+            href: '/about/governance',
             description: 'Elected continental student leadership',
           },
           {
-            label: 'Secretariat',
-            href: '#footer',
-            description: 'Headquarters in Accra, Ghana — management & departments',
+            label: 'Secretariat & Governing Documents',
+            href: '/about/governance',
+            description: 'Headquarters in Accra, Ghana and official instruments',
           },
         ],
       },
@@ -84,55 +89,81 @@ export const MEGA_MENU_CATEGORIES: MegaMenuCategory[] = [
         title: 'More Than Five Decades of African Student Solidarity',
         description:
           'Founded in 1972 in Kumasi, Ghana, AASU brings together national and sub-national student unions across Africa.',
-        href: '#at-a-glance',
+        href: '/about/history-legacy',
       },
       {
-        tag: 'Continental Reach',
-        title: 'One Union. Across Africa.',
+        tag: 'Democratic Leadership',
+        title: 'Executive Committee & Continental Governance',
         description:
-          'Representing African students across North, West, Central, East and Southern Africa.',
-        href: '#at-a-glance',
+          'Meet the elected 2026-2029 Executive Committee and explore AASU\u2019s democratic organs.',
+        href: '/about/governance',
       },
     ],
   },
   {
     id: 'our-work',
     label: 'Our Work',
-    href: '#priorities',
+    href: '/what-we-do',
     groups: [
       {
         heading: 'Our Strategic Priorities',
         links: [
-          { label: "01. Education & Students' Rights", href: '#priorities' },
-          { label: '02. Capacity Building, Skills & Employability', href: '#priorities' },
-          { label: '03. Gender Equity & Social Inclusion', href: '#priorities' },
-          { label: '04. Climate Action & Sustainability', href: '#priorities' },
-          { label: '05. Migration, Mobility & Exchanges', href: '#priorities' },
-          { label: '06. Democracy, Governance, Peace & Security', href: '#priorities' },
-          { label: '07. Pan-Africanism & African Culture', href: '#priorities' },
+          {
+            label: "01. Education & Students' Rights",
+            href: '/what-we-do/strategic-priorities/education-and-students-rights',
+          },
+          {
+            label: '02. Capacity Building, Skills Development & Employability',
+            href: '/what-we-do/strategic-priorities/capacity-building-skills-development-and-employability',
+          },
+          {
+            label: '03. Gender Equity & Social Inclusion',
+            href: '/what-we-do/strategic-priorities/gender-equity-and-social-inclusion',
+          },
+          {
+            label: '04. Migration, Mobility & Exchanges',
+            href: '/what-we-do/strategic-priorities/migration-mobility-and-exchanges',
+          },
+          {
+            label: '05. Climate Action & Environmental Sustainability',
+            href: '/what-we-do/strategic-priorities/climate-action-and-environmental-sustainability',
+          },
+          {
+            label: '06. Democracy, Good Governance, Peace & Security',
+            href: '/what-we-do/strategic-priorities/democracy-good-governance-peace-and-security',
+          },
+          {
+            label: '07. Pan Africanism & African Culture',
+            href: '/what-we-do/strategic-priorities/pan-africanism-and-african-culture',
+          },
         ],
       },
       {
         heading: 'Programmes, Policy & Impact',
         links: [
           {
+            label: 'What We Do Overview',
+            href: '/what-we-do',
+            description: 'Overview of AASU priorities, programmes and outcomes',
+          },
+          {
             label: 'Programmes & Initiatives',
-            href: '#programmes',
-            description: 'Greening Skills (ACQF), NELS & AASU Inspire Tour',
+            href: '/what-we-do/programmes',
+            description: 'Flagship, ongoing, completed and joint initiatives',
           },
           {
             label: 'Campaigns & Advocacy',
-            href: '#programmes',
+            href: '/what-we-do/campaigns-advocacy',
             description: 'Student rights, welfare and education policy advocacy',
           },
           {
             label: 'Policy Engagement & Representation',
-            href: '#latest',
+            href: '/what-we-do/policy-engagement',
             description: 'Continental and international policy dialogues',
           },
           {
             label: 'Results & Impact',
-            href: '#knowledge-hub',
+            href: '/what-we-do/results-impact',
             description: 'Institutional achievements and annual highlights',
           },
         ],
@@ -144,14 +175,14 @@ export const MEGA_MENU_CATEGORIES: MegaMenuCategory[] = [
         title: 'Greening Skills and Qualifications in Africa',
         description:
           'Advancing green skills, recognition of qualifications and lifelong learning with ETF and ACQF partners.',
-        href: '#programmes',
+        href: '/what-we-do/programmes',
       },
       {
-        tag: 'Leadership',
-        title: 'Next Level Skills for Student Leaders (NELS)',
+        tag: 'Impact & Reports',
+        title: 'Results & Annual Highlights',
         description:
-          'Developing student leadership through training, peer learning, research and international cooperation.',
-        href: '#programmes',
+          'Explore verified 2025-2026 outcomes, policy dialogues and official annual reports.',
+        href: '/what-we-do/results-impact',
       },
     ],
   },
@@ -252,7 +283,7 @@ export const MEGA_MENU_CATEGORIES: MegaMenuCategory[] = [
         tag: 'Featured Story · 20 July 2026',
         title: 'Sustainable Financing Reforms at Innovating Education in Africa 2026',
         description:
-          'AASU led a high-level Oxford-style debate supporting the AU Decade of Education and Skills (2025–2034).',
+          'AASU led a high-level Oxford-style debate supporting the AU Decade of Education and Skills (2025-2034).',
         href: '#latest',
       },
       {
@@ -295,7 +326,7 @@ export const DISCOVERY_FEATURED: MegaMenuFeaturedCard[] = [
     tag: 'Policy Dialogue · 2026',
     title: 'Sustainable Financing Reforms at Innovating Education in Africa 2026',
     description:
-      'AASU led a high-level Oxford-style debate examining financing reforms for the AU Decade of Education and Skills (2025–2034).',
+      'AASU led a high-level Oxford-style debate examining financing reforms for the AU Decade of Education and Skills (2025-2034).',
     href: '#latest',
   },
   {

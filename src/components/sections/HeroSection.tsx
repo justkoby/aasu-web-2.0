@@ -81,13 +81,11 @@ export function HeroSection() {
               transition={{ duration: 0.45, ease: AASU_EASE }}
               className="max-w-3xl"
             >
-              <div className="inline-flex items-center gap-3 border-l-2 border-aasu-red pl-3.5">
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-200">
-                  {activeSlide.eyebrow}
-                </span>
-              </div>
+              <p className="text-xs font-medium tracking-[0.14em] text-neutral-300">
+                {activeSlide.contextLabel}
+              </p>
 
-              <h1 className="mt-5 font-display text-[40px] font-bold leading-[1.04] tracking-tight text-aasu-white sm:text-5xl lg:text-[4.25rem] xl:text-[4.75rem]">
+              <h1 className="mt-4 font-display text-[40px] font-bold leading-[1.04] tracking-tight text-aasu-white sm:text-5xl lg:text-[4.25rem] xl:text-[4.75rem]">
                 {activeSlide.headline}
               </h1>
 

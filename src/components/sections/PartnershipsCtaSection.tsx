@@ -13,11 +13,10 @@ export function PartnershipsCtaSection() {
         {/* Partner Strip */}
         <Reveal>
           <SectionHeading
-            eyebrow="Partnerships"
             title="Partnering for the Future of African Education."
             description="Collaborating with governments, the African Union, UNESCO, universities and international partners."
             action={
-              <Button href="#footer" variant="outline" size="sm">
+              <Button href="/about/partners" variant="outline" size="sm">
                 Partner With AASU
               </Button>
             }
@@ -74,10 +73,7 @@ export function PartnershipsCtaSection() {
             className="flex flex-col items-start justify-between gap-8 rounded-3xl bg-aasu-red p-8 text-aasu-white sm:p-10 lg:flex-row lg:items-center lg:p-12"
           >
             <div className="max-w-xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-aasu-white/80">
-                Join the Movement
-              </p>
-              <h2 className="mt-2 font-display text-3xl font-bold leading-tight tracking-tight text-aasu-white sm:text-4xl">
+              <h2 className="font-display text-3xl font-bold leading-tight tracking-tight text-aasu-white sm:text-4xl">
                 Be Part of Africa&apos;s Student Movement.
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-aasu-white/90 sm:text-base">

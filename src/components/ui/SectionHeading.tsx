@@ -2,21 +2,21 @@ import type { ReactNode } from 'react'
 import { cn } from '@/lib/utils'
 
 interface SectionHeadingProps {
-  eyebrow: string
   title: string
   description?: string
   action?: ReactNode
   forceDark?: boolean
   className?: string
+  id?: string
 }
 
 export function SectionHeading({
-  eyebrow,
   title,
   description,
   action,
   forceDark = false,
   className,
+  id,
 }: SectionHeadingProps) {
   return (
     <div
@@ -26,20 +26,10 @@ export function SectionHeading({
       )}
     >
       <div className="max-w-2xl">
-        <div className="flex items-center gap-2.5">
-          <span className="h-0.5 w-7 bg-aasu-red" aria-hidden="true" />
-          <span
-            className={cn(
-              'text-xs font-semibold uppercase tracking-[0.18em]',
-              forceDark ? 'text-neutral-300' : 'text-aasu-red',
-            )}
-          >
-            {eyebrow}
-          </span>
-        </div>
         <h2
+          id={id}
           className={cn(
-            'mt-3 font-display text-3xl font-bold leading-[1.1] tracking-tight sm:text-4xl lg:text-[2.5rem]',
+            'font-display text-3xl font-bold leading-[1.1] tracking-tight sm:text-4xl lg:text-[2.5rem]',
             forceDark ? 'text-aasu-white' : 'text-ink',
           )}
         >
@@ -48,7 +38,7 @@ export function SectionHeading({
         {description && (
           <p
             className={cn(
-              'mt-3 max-w-xl text-base leading-relaxed',
+              'mt-3.5 max-w-xl text-base leading-relaxed',
               forceDark ? 'text-neutral-300' : 'text-ink-secondary',
             )}
           >

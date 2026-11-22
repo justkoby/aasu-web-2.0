@@ -12,10 +12,9 @@ export function ProgrammesSection() {
       <Container>
         <Reveal>
           <SectionHeading
-            eyebrow="Featured Programmes"
             title="Our Work. Across Africa and Beyond."
             action={
-              <Button href="#knowledge-hub" variant="outline" size="sm">
+              <Button href="/what-we-do/programmes" variant="outline" size="sm">
                 View All Programmes
               </Button>
             }

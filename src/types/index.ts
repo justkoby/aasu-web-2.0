@@ -12,7 +12,7 @@ export interface NavItem {
 
 export interface HeroSlide {
   id: string
-  eyebrow: string
+  contextLabel: string
   headline: string
   subheading: string
   image: string
@@ -21,30 +21,34 @@ export interface HeroSlide {
   secondaryCta: { label: string; href: string }
 }
 
+export interface GlancePhoto {
+  id: string
+  src: string
+  alt: string
+  caption: string
+  period: string
+}
+
 export interface StatItem {
   value: string
   label: string
   needsConfirmation?: boolean
 }
 
-export type PriorityIconKey =
-  | 'education'
-  | 'skills'
-  | 'gender'
-  | 'climate'
-  | 'mobility'
-  | 'governance'
-  | 'panafricanism'
+export interface PriorityPhoto {
+  src: string
+  alt: string
+  caption: string
+}
 
 export interface StrategicPriority {
   number: string
   title: string
-  shortTitle: string
   shortDescription: string
   description: string
-  icon: PriorityIconKey
-  image: string
-  imageAlt: string
+  iconPath: string
+  photos: PriorityPhoto[]
+  futureRoute: string
   href: string
 }
 
@@ -59,6 +63,8 @@ export interface MemberUnion {
 export interface AfricaRegion {
   id: AfricaRegionId
   name: string
+  coordinates: [number, number] // [latitude, longitude]
+  hubLabel: string
   summary: string
   unions: MemberUnion[]
 }
@@ -75,7 +81,6 @@ export interface ProgrammeItem {
   image: string
   imageAlt: string
   featured?: boolean
-  imageNote?: string
 }
 
 export interface NewsArticle {

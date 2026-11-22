@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { lazy, Suspense, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowRight, MapPinned, Search } from 'lucide-react'
 import { Container } from '@/components/layout/Container'
@@ -7,12 +7,14 @@ import { AFRICA_REGIONS } from '@/data/homepage'
 import type { AfricaRegionId } from '@/types'
 import { cn } from '@/lib/utils'
 
+const AfricaGlobe = lazy(() => import('./AfricaGlobe'))
+
 export function MembershipSection() {
   const [activeRegionId, setActiveRegionId] = useState<AfricaRegionId>('west')
   const [unionQuery, setUnionQuery] = useState('')
 
   const activeRegion =
-    AFRICA_REGIONS.find((r) => r.id === activeRegionId) ?? AFRICA_REGIONS[0]
+    AFRICA_REGIONS.find((r) => r.id === activeRegionId) ?? AFRICA_REGIONS[1]
 
   const visibleUnions = useMemo(() => {
     const q = unionQuery.trim().toLowerCase()
@@ -28,46 +30,46 @@ export function MembershipSection() {
   return (
     <section
       id="membership"
-      className="relative overflow-hidden bg-[#121212] py-16 text-aasu-white dark:bg-[#15171C] lg:py-22"
+      aria-labelledby="membership-heading"
+      className="relative overflow-hidden bg-[#101114] py-16 text-aasu-white lg:py-22"
     >
-      <img
-        src="/images/brand/africa-map.svg"
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-24 top-1/2 hidden h-[460px] w-auto -translate-y-1/2 opacity-[0.06] lg:block"
-      />
-
       <Container className="relative z-10">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-          {/* Compact Narrative */}
+          {/* Left Column: Heading + Interactive 3D Africa Globe */}
           <Reveal className="lg:col-span-5">
             <SectionHeading
+              id="membership-heading"
               forceDark
-              eyebrow="Across Africa"
               title="Across Borders. United in Purpose."
-              description="Connecting national and sub-national student unions across North, West, Central, East and Southern Africa."
+              description="Connecting national and sub-national student unions across five African regions, anchored by our Secretariat in Accra, Ghana."
             />
 
-            <div className="mt-7 flex flex-wrap items-center gap-3">
-              <Button href="#partnerships" variant="primary" size="md">
-                <span>Explore Membership</span>
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Button>
-              <Button
-                href="#regional-explorer"
-                variant="outlineLight"
-                size="md"
+            {/* Lazy-Loaded 3D Globe with Accessible Non-3D Fallback */}
+            <div className="mt-6">
+              <Suspense
+                fallback={
+                  <div className="mx-auto flex aspect-square w-full max-w-[360px] items-center justify-center rounded-full border border-white/10 bg-white/[0.03]">
+                    <img
+                      src="/images/brand/africa-map.svg"
+                      alt="Africa regional network map"
+                      className="h-44 w-auto opacity-70"
+                    />
+                  </div>
+                }
               >
-                Find a Member Union
-              </Button>
+                <AfricaGlobe
+                  activeRegionId={activeRegionId}
+                  onSelectRegion={setActiveRegionId}
+                />
+              </Suspense>
             </div>
           </Reveal>
 
-          {/* Interactive 5-Region Explorer */}
+          {/* Right Column: 5-Region Selector + Verified Member Union Directory */}
           <Reveal delay={0.06} className="lg:col-span-7">
             <div
               id="regional-explorer"
-              className="rounded-3xl border border-white/15 bg-white/[0.04] p-5 sm:p-6"
+              className="rounded-3xl border border-white/12 bg-white/[0.04] p-5 sm:p-6"
             >
               <div
                 role="tablist"
@@ -87,7 +89,7 @@ export function MembershipSection() {
                         setUnionQuery('')
                       }}
                       className={cn(
-                        'rounded-full px-3.5 py-1.5 font-display text-xs font-semibold transition-colors cursor-pointer',
+                        'rounded-full px-3.5 py-1.5 font-display text-xs font-medium transition-colors cursor-pointer',
                         selected
                           ? 'bg-aasu-red text-aasu-white'
                           : 'border border-white/15 text-neutral-300 hover:border-white/40 hover:text-aasu-white',
@@ -100,9 +102,11 @@ export function MembershipSection() {
               </div>
 
               <div className="mt-4 flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
-                <p className="text-xs text-[#B7BBC3]">{activeRegion.summary}</p>
+                <p className="text-xs leading-relaxed text-[#B7BBC3]">
+                  {activeRegion.summary}
+                </p>
                 <label className="relative block w-full shrink-0 sm:w-52">
-                  <span className="sr-only">Filter unions</span>
+                  <span className="sr-only">Filter verified member unions</span>
                   <Search
                     className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-neutral-400"
                     aria-hidden="true"
@@ -112,7 +116,7 @@ export function MembershipSection() {
                     value={unionQuery}
                     onChange={(e) => setUnionQuery(e.target.value)}
                     placeholder="Filter country or union..."
-                    className="w-full rounded-full border border-white/15 bg-[#101114]/70 py-1.5 pl-9 pr-3 text-xs text-aasu-white placeholder:text-neutral-500 focus:border-aasu-red focus:outline-none"
+                    className="w-full rounded-full border border-white/15 bg-[#101114]/80 py-1.5 pl-9 pr-3 text-xs text-aasu-white placeholder:text-neutral-500 focus:border-aasu-red focus:outline-none"
                   />
                 </label>
               </div>
@@ -124,7 +128,7 @@ export function MembershipSection() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -4 }}
                   transition={{ duration: 0.18 }}
-                  className="mt-4 grid max-h-[268px] gap-2.5 overflow-y-auto pr-1 sm:grid-cols-2"
+                  className="mt-4 grid max-h-[290px] gap-2.5 overflow-y-auto pr-1 sm:grid-cols-2"
                 >
                   {visibleUnions.length === 0 ? (
                     <p className="col-span-full py-6 text-center text-sm text-[#B7BBC3]">
@@ -134,7 +138,7 @@ export function MembershipSection() {
                     visibleUnions.map((union) => (
                       <div
                         key={`${union.country}-${union.name}`}
-                        className="rounded-xl border border-white/10 bg-[#101114]/55 p-3.5 transition-colors hover:border-aasu-red/60"
+                        className="rounded-xl border border-white/10 bg-[#101114]/60 p-3.5 transition-colors hover:border-aasu-red/60"
                       >
                         <div className="flex items-center justify-between gap-2 text-[11px]">
                           <span className="inline-flex items-center gap-1.5 font-semibold text-neutral-200">
@@ -157,6 +161,17 @@ export function MembershipSection() {
                   )}
                 </motion.div>
               </AnimatePresence>
+
+              <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-4">
+                <span className="text-xs text-[#B7BBC3]">
+                  {visibleUnions.length} verified union
+                  {visibleUnions.length === 1 ? '' : 's'} in {activeRegion.name}
+                </span>
+                <Button href="#partnerships" variant="primary" size="sm">
+                  <span>Explore Full Directory</span>
+                  <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                </Button>
+              </div>
             </div>
           </Reveal>
         </div>

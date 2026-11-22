@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowUpRight, Search, X } from 'lucide-react'
+import { AppLink } from '@/components/ui/AppLink'
 import {
   AFRICA_REGIONS,
   FEATURED_NEWS,
@@ -35,6 +37,7 @@ interface IndexedItem {
 const SUGGESTED_QUERIES = ['Greening Skills', 'NELS', 'Ghana', 'Toolkit', 'Statements']
 
 export function SearchDiscoveryModal({ onClose }: SearchDiscoveryModalProps) {
+  const navigate = useNavigate()
   const [query, setQuery] = useState('')
   const [activeIndex, setActiveIndex] = useState(-1)
   const dialogRef = useRef<HTMLDivElement>(null)
@@ -195,10 +198,10 @@ export function SearchDiscoveryModal({ onClose }: SearchDiscoveryModalProps) {
       e.preventDefault()
       const selected = searchResults[activeIndex]
       if (selected) {
-        if (selected.external) {
+        if (selected.external || selected.href.endsWith('.pdf')) {
           window.open(selected.href, '_blank', 'noopener,noreferrer')
         } else {
-          window.location.hash = selected.href.replace(/^#/, '')
+          navigate(selected.href.startsWith('#') ? `/${selected.href}` : selected.href)
         }
         onClose()
       }
@@ -294,7 +297,7 @@ export function SearchDiscoveryModal({ onClose }: SearchDiscoveryModalProps) {
           <span className="inline-flex items-center gap-2 font-medium">
             <span className="h-1.5 w-1.5 rounded-full bg-aasu-red" aria-hidden="true" />
             <span>
-              Local search prototype — searches verified AASU homepage, sitemap,
+              Local search prototype: searches verified AASU homepage, sitemap,
               member unions and 2026 publications.
             </span>
           </span>
@@ -321,17 +324,14 @@ export function SearchDiscoveryModal({ onClose }: SearchDiscoveryModalProps) {
                       <ul className="mt-2.5 space-y-1">
                         {group.links.map((item) => (
                           <li key={item.label}>
-                            <a
+                            <AppLink
                               href={item.href}
-                              target={item.external ? '_blank' : undefined}
-                              rel={
-                                item.external ? 'noopener noreferrer' : undefined
-                              }
+                              external={item.external}
                               onClick={onClose}
                               className="block rounded-lg px-2.5 py-2 font-display text-sm font-semibold text-ink transition-colors hover:bg-surface-card hover:text-aasu-red"
                             >
                               {item.label}
-                            </a>
+                            </AppLink>
                           </li>
                         ))}
                       </ul>
@@ -384,10 +384,9 @@ export function SearchDiscoveryModal({ onClose }: SearchDiscoveryModalProps) {
                         role="option"
                         aria-selected={idx === activeIndex}
                       >
-                        <a
+                        <AppLink
                           href={item.href}
-                          target={item.external ? '_blank' : undefined}
-                          rel={item.external ? 'noopener noreferrer' : undefined}
+                          external={item.external}
                           onClick={onClose}
                           className={cn(
                             'group block rounded-xl border p-3.5 transition-colors',
@@ -415,7 +414,7 @@ export function SearchDiscoveryModal({ onClose }: SearchDiscoveryModalProps) {
                               aria-hidden="true"
                             />
                           </div>
-                        </a>
+                        </AppLink>
                       </li>
                     ))}
                   </ul>
@@ -430,11 +429,10 @@ export function SearchDiscoveryModal({ onClose }: SearchDiscoveryModalProps) {
             </h3>
             <div className="mt-4 space-y-4">
               {DISCOVERY_FEATURED.map((card) => (
-                <a
+                <AppLink
                   key={card.title}
                   href={card.href}
-                  target={card.external ? '_blank' : undefined}
-                  rel={card.external ? 'noopener noreferrer' : undefined}
+                  external={card.external}
                   onClick={onClose}
                   className="group block rounded-2xl border border-border-subtle bg-surface-card p-6 shadow-2xs transition-all duration-200 hover:border-ink/25 hover:shadow-md"
                 >
@@ -455,7 +453,7 @@ export function SearchDiscoveryModal({ onClose }: SearchDiscoveryModalProps) {
                       aria-hidden="true"
                     />
                   </div>
-                </a>
+                </AppLink>
               ))}
             </div>
           </div>

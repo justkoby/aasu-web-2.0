@@ -1,4 +1,5 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react'
+import { AppLink } from '@/components/ui/AppLink'
 import { cn } from '@/lib/utils'
 
 type ButtonVariant = 'primary' | 'dark' | 'outline' | 'outlineLight' | 'ghost'
@@ -59,9 +60,9 @@ export function Button({
   if ('href' in props && props.href !== undefined) {
     const { href, ...anchorProps } = props
     return (
-      <a href={href} className={classes} {...anchorProps}>
+      <AppLink href={href} className={classes} {...anchorProps}>
         {children}
-      </a>
+      </AppLink>
     )
   }
 

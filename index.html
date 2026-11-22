@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en" data-font-pair="lufga">
+<html lang="en" data-font-pair="lufga-inter">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>All-Africa Students Union (AASU) — The Continental Voice of Africa's Students</title>
+    <title>All-Africa Students Union (AASU) | The Continental Voice of Africa's Students</title>
     <meta
       name="description"
       content="The official website of the All-Africa Students Union (AASU). Representing the interests and aspirations of African students since 1972."
@@ -25,7 +25,11 @@
           document.documentElement.classList.toggle('dark', isDark);
 
           var storedFont = localStorage.getItem('aasu-font-pair');
-          if (storedFont === 'manrope' || storedFont === 'lufga') {
+          if (
+            storedFont === 'lufga-inter' ||
+            storedFont === 'lufga-lufga' ||
+            storedFont === 'manrope-inter'
+          ) {
             document.documentElement.dataset.fontPair = storedFont;
           }
         } catch (e) {}

@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronDown, Menu, Moon, Search, Sun, X } from 'lucide-react'
 import { MegaMenuPanel } from '@/components/layout/MegaMenuPanel'
 import { SearchDiscoveryModal } from '@/components/layout/SearchDiscoveryModal'
+import { AppLink } from '@/components/ui/AppLink'
 import { MEGA_MENU_CATEGORIES } from '@/data/navigation'
 import { useTheme } from '@/hooks'
 import { AASU_EASE } from '@/lib/motion'
@@ -115,12 +116,12 @@ export function Navbar() {
                 : 'h-16 px-4 sm:h-[68px] sm:px-7',
             )}
           >
-            {/* Official AASU Logo — compact width, exact proportions, links to Home */}
-            <a
-              href="#top"
+            {/* Official AASU Logo: compact width, exact proportions, links to Home */}
+            <AppLink
+              href="/"
               onClick={closeMegaMenu}
               className="flex shrink-0 items-center"
-              aria-label="All-Africa Students Union (AASU) — Home"
+              aria-label="All-Africa Students Union (AASU) Home"
             >
               <img
                 src={logoSrc}
@@ -130,7 +131,7 @@ export function Navbar() {
                   scrolled ? 'h-8 sm:h-9' : 'h-8 sm:h-9',
                 )}
               />
-            </a>
+            </AppLink>
 
             {/* Desktop & Large Tablet Navigation (lg+, 1024px+): 4 spacious single-line categories */}
             <ul className="hidden items-center gap-2 font-display lg:flex xl:gap-4">
@@ -310,13 +311,13 @@ export function Navbar() {
             <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
               <ul className="divide-y divide-border-subtle border-y border-border-subtle">
                 <li>
-                  <a
-                    href="#top"
+                  <AppLink
+                    href="/"
                     onClick={() => setMobileOpen(false)}
                     className="block py-4 font-display text-base font-medium text-ink hover:text-aasu-red"
                   >
                     Home
-                  </a>
+                  </AppLink>
                 </li>
 
                 {MEGA_MENU_CATEGORIES.map((category) => {
@@ -359,21 +360,14 @@ export function Navbar() {
                                   <ul className="mt-1.5 space-y-1">
                                     {group.links.map((link) => (
                                       <li key={link.label}>
-                                        <a
+                                        <AppLink
                                           href={link.href}
-                                          target={
-                                            link.external ? '_blank' : undefined
-                                          }
-                                          rel={
-                                            link.external
-                                              ? 'noopener noreferrer'
-                                              : undefined
-                                          }
+                                          external={link.external}
                                           onClick={() => setMobileOpen(false)}
                                           className="block py-1.5 text-sm font-normal text-ink-secondary hover:text-aasu-red"
                                         >
                                           {link.label}
-                                        </a>
+                                        </AppLink>
                                       </li>
                                     ))}
                                   </ul>
