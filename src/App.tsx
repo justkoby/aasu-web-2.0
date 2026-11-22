@@ -2,26 +2,24 @@ import { MotionConfig } from 'framer-motion'
 import { Footer } from '@/components/layout/Footer'
 import { Navbar } from '@/components/layout/Navbar'
 import {
-  AboutSection,
-  ContinentalReachSection,
-  FinalCtaSection,
+  AtAGlanceSection,
   HeroSection,
   KnowledgeHubSection,
+  LatestFromAasuSection,
   MembershipSection,
-  NewsMediaSection,
-  OpportunitiesSection,
-  PartnershipsSection,
+  PartnershipsCtaSection,
   ProgrammesSection,
   StrategicPrioritiesSection,
 } from '@/components/sections'
+import { DevFontSwitcher } from '@/components/ui'
 
 export function App() {
   return (
     <MotionConfig reducedMotion="user">
-      <div className="flex min-h-screen flex-col bg-aasu-white text-aasu-black">
+      <div className="flex min-h-screen flex-col bg-surface text-ink">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-aasu-red focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-aasu-white"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-full focus:bg-aasu-red focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-aasu-white"
         >
           Skip to main content
         </a>
@@ -30,19 +28,17 @@ export function App() {
 
         <main id="main-content" className="flex-1">
           <HeroSection />
-          <ContinentalReachSection />
-          <AboutSection />
+          <AtAGlanceSection />
           <StrategicPrioritiesSection />
           <MembershipSection />
           <ProgrammesSection />
-          <NewsMediaSection />
+          <LatestFromAasuSection />
           <KnowledgeHubSection />
-          <OpportunitiesSection />
-          <PartnershipsSection />
-          <FinalCtaSection />
+          <PartnershipsCtaSection />
         </main>
 
         <Footer />
+        <DevFontSwitcher />
       </div>
     </MotionConfig>
   )

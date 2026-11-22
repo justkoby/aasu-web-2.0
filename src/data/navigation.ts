@@ -35,19 +35,19 @@ export const MEGA_MENU_CATEGORIES: MegaMenuCategory[] = [
   {
     id: 'about',
     label: 'About',
-    href: '#about',
+    href: '#at-a-glance',
     groups: [
       {
         heading: 'Who We Are',
         links: [
           {
             label: 'Overview of AASU',
-            href: '#about',
+            href: '#at-a-glance',
             description: 'Institutional identity, vision, mission, values & mandate',
           },
           {
             label: 'History & Legacy',
-            href: '#about',
+            href: '#at-a-glance',
             description: 'Founded in Kumasi in 1972 and five decades of solidarity',
           },
           {
@@ -62,12 +62,12 @@ export const MEGA_MENU_CATEGORIES: MegaMenuCategory[] = [
         links: [
           {
             label: 'Congress & Governance Structures',
-            href: '#about',
+            href: '#at-a-glance',
             description: "The Union's highest democratic decision-making organ",
           },
           {
             label: 'Executive Committee',
-            href: '#about',
+            href: '#at-a-glance',
             description: 'Elected continental student leadership',
           },
           {
@@ -84,20 +84,20 @@ export const MEGA_MENU_CATEGORIES: MegaMenuCategory[] = [
         title: 'More Than Five Decades of African Student Solidarity',
         description:
           'Founded in 1972 in Kumasi, Ghana, AASU brings together national and sub-national student unions across Africa.',
-        href: '#about',
+        href: '#at-a-glance',
       },
       {
         tag: 'Continental Reach',
         title: 'One Union. Across Africa.',
         description:
           'Representing African students across North, West, Central, East and Southern Africa.',
-        href: '#reach',
+        href: '#at-a-glance',
       },
     ],
   },
   {
-    id: 'what-we-do',
-    label: 'What We Do',
+    id: 'our-work',
+    label: 'Our Work',
     href: '#priorities',
     groups: [
       {
@@ -127,7 +127,7 @@ export const MEGA_MENU_CATEGORIES: MegaMenuCategory[] = [
           },
           {
             label: 'Policy Engagement & Representation',
-            href: '#news',
+            href: '#latest',
             description: 'Continental and international policy dialogues',
           },
           {
@@ -207,43 +207,43 @@ export const MEGA_MENU_CATEGORIES: MegaMenuCategory[] = [
     ],
   },
   {
-    id: 'news-media',
-    label: 'News & Media',
-    href: '#news',
+    id: 'explore',
+    label: 'Explore',
+    href: '#latest',
     groups: [
       {
-        heading: 'Newsroom',
+        heading: 'News & Media',
         links: [
-          {
-            label: 'Latest News',
-            href: '#news',
-            description: 'Institutional engagements, updates and developments',
-          },
-          {
-            label: 'Press Releases & Statements',
-            href: '#statements',
-            description: 'Official statements and public policy positions',
-          },
-          {
-            label: 'Speeches & Addresses',
-            href: '#news',
-            description: 'Official remarks by authorised AASU representatives',
-          },
+          { label: 'Latest News', href: '#latest' },
+          { label: 'Press Releases & Statements', href: '#statements' },
+          { label: 'Speeches & Addresses', href: '#latest' },
+          { label: 'Media Gallery & Media Centre', href: '#footer' },
         ],
       },
       {
-        heading: 'Media Resources',
+        heading: 'Events',
         links: [
-          {
-            label: 'Media Gallery',
-            href: '#news',
-            description: 'Event and programme visual archives',
-          },
-          {
-            label: 'Media Centre',
-            href: '#footer',
-            description: 'Press enquiries, official logos and brand assets',
-          },
+          { label: 'Events Calendar', href: '#opportunities' },
+          { label: 'Major Summits & Conferences', href: '#opportunities' },
+          { label: 'Past Events & Highlights', href: '#latest' },
+        ],
+      },
+      {
+        heading: 'Knowledge Hub',
+        links: [
+          { label: 'Knowledge Hub Overview', href: '#knowledge-hub' },
+          { label: 'Research & Policy Papers', href: '#knowledge-hub' },
+          { label: 'Reports & Annual Reports', href: '#knowledge-hub' },
+          { label: 'Toolkits, Guides & Institutional Docs', href: '#knowledge-hub' },
+        ],
+      },
+      {
+        heading: 'Opportunities',
+        links: [
+          { label: 'Opportunities Portal', href: '#opportunities' },
+          { label: 'Scholarships & Fellowships', href: '#opportunities' },
+          { label: 'Conferences, Exchanges & Training', href: '#opportunities' },
+          { label: 'Internships, Volunteering & Careers', href: '#opportunities' },
         ],
       },
     ],
@@ -253,88 +253,8 @@ export const MEGA_MENU_CATEGORIES: MegaMenuCategory[] = [
         title: 'Sustainable Financing Reforms at Innovating Education in Africa 2026',
         description:
           'AASU led a high-level Oxford-style debate supporting the AU Decade of Education and Skills (2025–2034).',
-        href: '#news',
+        href: '#latest',
       },
-      {
-        tag: 'Official Statement · PR.SG.26.017',
-        title: 'Enhanced Protection of African Students in South Africa',
-        description:
-          "Read AASU's official public statement calling for safeguards for African students.",
-        href: '#statements',
-      },
-    ],
-  },
-  {
-    id: 'events',
-    label: 'Events',
-    href: '#opportunities',
-    groups: [
-      {
-        heading: 'Convenings & Forums',
-        links: [
-          {
-            label: 'Events Calendar',
-            href: '#opportunities',
-            description: 'Upcoming meetings, conferences and engagements',
-          },
-          {
-            label: 'Major Summits & Conferences',
-            href: '#opportunities',
-            description: 'AASU flagship summits and continental forums',
-          },
-          {
-            label: 'Past Events',
-            href: '#news',
-            description: 'Completed activities, reports and highlights',
-          },
-        ],
-      },
-    ],
-    featured: [
-      {
-        tag: 'Events & Conferences',
-        title: 'Find Your Next Opportunity',
-        description:
-          'Explore upcoming continental summits, policy dialogues and international student convenings.',
-        href: '#opportunities',
-      },
-    ],
-  },
-  {
-    id: 'knowledge-hub',
-    label: 'Knowledge Hub',
-    href: '#knowledge-hub',
-    groups: [
-      {
-        heading: 'Publications & Research',
-        links: [
-          {
-            label: 'Knowledge Hub Overview',
-            href: '#knowledge-hub',
-            description: 'Featured publications and institutional resource library',
-          },
-          { label: 'Research & Policy Papers', href: '#knowledge-hub' },
-          { label: 'Reports & Annual Reports', href: '#knowledge-hub' },
-          { label: 'Policy Briefs & Position Papers', href: '#knowledge-hub' },
-        ],
-      },
-      {
-        heading: 'Resources & Governance Docs',
-        links: [
-          {
-            label: 'Toolkits, Guides & Learning Resources',
-            href: '#knowledge-hub',
-            description: 'Practical guides and student leadership manuals',
-          },
-          {
-            label: 'Institutional Documents',
-            href: '#knowledge-hub',
-            description: 'AASU Constitution, strategic plans and policies',
-          },
-        ],
-      },
-    ],
-    featured: [
       {
         tag: '2026 Toolkit · PDF',
         title: 'Toolkit on Greening Skills and Qualifications in Africa',
@@ -342,44 +262,6 @@ export const MEGA_MENU_CATEGORIES: MegaMenuCategory[] = [
           'Developed by AASU and partners under the African Continental Qualifications Framework.',
         href: '/documents/acqf-toolkit-greening-skills.pdf',
         external: true,
-      },
-      {
-        tag: '2026 Case Book · PDF',
-        title: 'Book of Good Practices for Greening Skills & Qualifications',
-        description:
-          'Practical examples supporting greener education and qualification systems across Africa.',
-        href: '/documents/acqf-book-of-good-practices.pdf',
-        external: true,
-      },
-    ],
-  },
-  {
-    id: 'opportunities',
-    label: 'Opportunities',
-    href: '#opportunities',
-    groups: [
-      {
-        heading: 'Student & Youth Pathways',
-        links: [
-          {
-            label: 'Opportunities Portal',
-            href: '#opportunities',
-            description: 'Directory of current opportunities for students and youth',
-          },
-          { label: 'Scholarships & Fellowships', href: '#opportunities' },
-          { label: 'Conferences, Exchanges & Training', href: '#opportunities' },
-          { label: 'Internships & Volunteering', href: '#opportunities' },
-          { label: 'Careers at AASU', href: '#footer' },
-        ],
-      },
-    ],
-    featured: [
-      {
-        tag: 'Student Mobility & Growth',
-        title: 'Scholarships, Fellowships & Exchanges',
-        description:
-          'Discover programmes that support learning, leadership, mobility and professional experience.',
-        href: '#opportunities',
       },
     ],
   },
@@ -389,7 +271,7 @@ export const DISCOVERY_QUICK_GROUPS: DiscoveryQuickGroup[] = [
   {
     category: 'Institutional',
     links: [
-      { label: 'About AASU & History (1972)', href: '#about' },
+      { label: 'About AASU & History (1972)', href: '#at-a-glance' },
       { label: 'Seven Strategic Priorities', href: '#priorities' },
       { label: 'Regional Member Unions', href: '#regional-explorer' },
       { label: 'Partner With AASU', href: '#partnerships' },
@@ -414,7 +296,7 @@ export const DISCOVERY_FEATURED: MegaMenuFeaturedCard[] = [
     title: 'Sustainable Financing Reforms at Innovating Education in Africa 2026',
     description:
       'AASU led a high-level Oxford-style debate examining financing reforms for the AU Decade of Education and Skills (2025–2034).',
-    href: '#news',
+    href: '#latest',
   },
   {
     tag: '2026 Publication · PDF',

@@ -10,16 +10,41 @@ export interface NavItem {
   children?: NavChildLink[]
 }
 
+export interface HeroSlide {
+  id: string
+  eyebrow: string
+  headline: string
+  subheading: string
+  image: string
+  imageAlt: string
+  primaryCta: { label: string; href: string }
+  secondaryCta: { label: string; href: string }
+}
+
 export interface StatItem {
   value: string
   label: string
   needsConfirmation?: boolean
 }
 
+export type PriorityIconKey =
+  | 'education'
+  | 'skills'
+  | 'gender'
+  | 'climate'
+  | 'mobility'
+  | 'governance'
+  | 'panafricanism'
+
 export interface StrategicPriority {
   number: string
   title: string
+  shortTitle: string
+  shortDescription: string
   description: string
+  icon: PriorityIconKey
+  image: string
+  imageAlt: string
   href: string
 }
 
@@ -42,6 +67,7 @@ export interface ProgrammeItem {
   id: string
   title: string
   category: string
+  shortDescription: string
   description: string
   secondaryText?: string
   ctaLabel: string
@@ -91,6 +117,17 @@ export interface OpportunityCategory {
   ctaLabel: string
   href: string
   icon: 'calendar' | 'award' | 'globe'
+}
+
+export interface OpportunityHighlight {
+  id: string
+  type: 'Event' | 'Opportunity' | 'Pathway'
+  title: string
+  dateLabel: string
+  locationOrMeta: string
+  ctaLabel: string
+  href: string
+  external?: boolean
 }
 
 export interface PartnerLogo {

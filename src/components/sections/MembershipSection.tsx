@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ArrowRight, MapPin, Search } from 'lucide-react'
+import { ArrowRight, MapPinned, Search } from 'lucide-react'
 import { Container } from '@/components/layout/Container'
 import { Button, Reveal, SectionHeading } from '@/components/ui'
 import { AFRICA_REGIONS } from '@/data/homepage'
@@ -28,47 +28,29 @@ export function MembershipSection() {
   return (
     <section
       id="membership"
-      className="relative overflow-hidden bg-aasu-black py-20 text-aasu-white lg:py-28"
+      className="relative overflow-hidden bg-[#121212] py-16 text-aasu-white dark:bg-[#15171C] lg:py-22"
     >
-      {/* Subtle Continental Silhouette Watermark */}
       <img
         src="/images/brand/africa-map.svg"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute -right-24 top-1/2 hidden h-[520px] w-auto -translate-y-1/2 opacity-[0.06] invert lg:block"
+        className="pointer-events-none absolute -right-24 top-1/2 hidden h-[460px] w-auto -translate-y-1/2 opacity-[0.06] lg:block"
       />
 
       <Container className="relative z-10">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-12">
-          {/* Left Narrative Column */}
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+          {/* Compact Narrative */}
           <Reveal className="lg:col-span-5">
             <SectionHeading
-              theme="dark"
-              eyebrow="Membership"
+              forceDark
+              eyebrow="Across Africa"
               title="Across Borders. United in Purpose."
+              description="Connecting national and sub-national student unions across North, West, Central, East and Southern Africa."
             />
 
-            <div className="mt-6 space-y-4 text-base leading-relaxed text-neutral-300">
-              <p>
-                Africa&apos;s student movement draws its strength from the
-                organisations and students who constitute it.
-              </p>
-              <p>
-                Through its network of national and sub-national student unions,
-                AASU connects student representatives across North, West,
-                Central, East and Southern Africa.
-              </p>
-              <p>
-                Our members bring different experiences, perspectives and
-                priorities to the Union. Together, they contribute to common
-                positions, share knowledge, strengthen cooperation and advance
-                the collective interests of African students.
-              </p>
-            </div>
-
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Button href="#join" variant="primary" size="md">
-                <span>Explore Our Membership</span>
+            <div className="mt-7 flex flex-wrap items-center gap-3">
+              <Button href="#partnerships" variant="primary" size="md">
+                <span>Explore Membership</span>
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Button>
               <Button
@@ -81,17 +63,16 @@ export function MembershipSection() {
             </div>
           </Reveal>
 
-          {/* Right Responsive Regional Explorer */}
-          <Reveal delay={0.08} className="lg:col-span-7">
+          {/* Interactive 5-Region Explorer */}
+          <Reveal delay={0.06} className="lg:col-span-7">
             <div
               id="regional-explorer"
-              className="border border-white/15 bg-white/[0.03] p-5 sm:p-7"
+              className="rounded-3xl border border-white/15 bg-white/[0.04] p-5 sm:p-6"
             >
-              {/* Region Tabs */}
               <div
                 role="tablist"
                 aria-label="African Regions"
-                className="flex flex-wrap gap-2 border-b border-white/10 pb-5"
+                className="flex flex-wrap gap-2 border-b border-white/10 pb-4"
               >
                 {AFRICA_REGIONS.map((region) => {
                   const selected = region.id === activeRegionId
@@ -106,7 +87,7 @@ export function MembershipSection() {
                         setUnionQuery('')
                       }}
                       className={cn(
-                        'px-3.5 py-2 font-display text-xs font-bold uppercase tracking-[0.12em] transition-colors cursor-pointer',
+                        'rounded-full px-3.5 py-1.5 font-display text-xs font-semibold transition-colors cursor-pointer',
                         selected
                           ? 'bg-aasu-red text-aasu-white'
                           : 'border border-white/15 text-neutral-300 hover:border-white/40 hover:text-aasu-white',
@@ -118,19 +99,10 @@ export function MembershipSection() {
                 })}
               </div>
 
-              {/* Active Region Header & Filter */}
-              <div className="mt-5 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
-                <div>
-                  <h3 className="font-display text-xl font-bold text-aasu-white">
-                    {activeRegion.name}
-                  </h3>
-                  <p className="mt-1 text-xs leading-relaxed text-neutral-400">
-                    {activeRegion.summary}
-                  </p>
-                </div>
-
-                <label className="relative block w-full sm:w-56 shrink-0">
-                  <span className="sr-only">Filter unions in {activeRegion.name}</span>
+              <div className="mt-4 flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+                <p className="text-xs text-[#B7BBC3]">{activeRegion.summary}</p>
+                <label className="relative block w-full shrink-0 sm:w-52">
+                  <span className="sr-only">Filter unions</span>
                   <Search
                     className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-neutral-400"
                     aria-hidden="true"
@@ -139,46 +111,45 @@ export function MembershipSection() {
                     type="search"
                     value={unionQuery}
                     onChange={(e) => setUnionQuery(e.target.value)}
-                    placeholder="Filter by country or union..."
-                    className="w-full border border-white/15 bg-aasu-black/60 py-2 pl-9 pr-3 text-xs text-aasu-white placeholder:text-neutral-500 focus:border-aasu-red focus:outline-none"
+                    placeholder="Filter country or union..."
+                    className="w-full rounded-full border border-white/15 bg-[#101114]/70 py-1.5 pl-9 pr-3 text-xs text-aasu-white placeholder:text-neutral-500 focus:border-aasu-red focus:outline-none"
                   />
                 </label>
               </div>
 
-              {/* Verified Member Unions List */}
               <AnimatePresence mode="wait">
                 <motion.div
                   key={`${activeRegion.id}-${unionQuery}`}
                   initial={{ opacity: 0, y: 6 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -4 }}
-                  transition={{ duration: 0.2 }}
-                  className="mt-5 grid max-h-[340px] gap-2.5 overflow-y-auto pr-1 sm:grid-cols-2"
+                  transition={{ duration: 0.18 }}
+                  className="mt-4 grid max-h-[268px] gap-2.5 overflow-y-auto pr-1 sm:grid-cols-2"
                 >
                   {visibleUnions.length === 0 ? (
-                    <p className="col-span-full py-8 text-center text-sm text-neutral-400">
-                      No verified member unions match &ldquo;{unionQuery}&rdquo; in{' '}
-                      {activeRegion.name}.
+                    <p className="col-span-full py-6 text-center text-sm text-[#B7BBC3]">
+                      No verified member unions match &ldquo;{unionQuery}&rdquo;.
                     </p>
                   ) : (
                     visibleUnions.map((union) => (
                       <div
                         key={`${union.country}-${union.name}`}
-                        className="flex flex-col justify-between border border-white/10 bg-aasu-black/40 p-3.5 transition-colors hover:border-aasu-red/60"
+                        className="rounded-xl border border-white/10 bg-[#101114]/55 p-3.5 transition-colors hover:border-aasu-red/60"
                       >
                         <div className="flex items-center justify-between gap-2 text-[11px]">
-                          <span className="inline-flex items-center gap-1 font-semibold uppercase tracking-[0.12em] text-neutral-300">
-                            <MapPin
-                              className="h-3 w-3 text-aasu-red"
+                          <span className="inline-flex items-center gap-1.5 font-semibold text-neutral-200">
+                            <MapPinned
+                              className="h-3.5 w-3.5 text-aasu-red"
+                              strokeWidth={1.75}
                               aria-hidden="true"
                             />
                             {union.country}
                           </span>
-                          <span className="text-[10px] font-medium uppercase tracking-wider text-neutral-400">
+                          <span className="text-[10px] uppercase tracking-wider text-neutral-400">
                             {union.membershipType}
                           </span>
                         </div>
-                        <p className="mt-2 font-display text-sm font-semibold leading-snug text-aasu-white">
+                        <p className="mt-1.5 font-display text-sm font-semibold leading-snug text-aasu-white">
                           {union.name}
                         </p>
                       </div>
@@ -186,16 +157,6 @@ export function MembershipSection() {
                   )}
                 </motion.div>
               </AnimatePresence>
-
-              <div className="mt-5 flex items-center justify-between border-t border-white/10 pt-4 text-xs text-neutral-400">
-                <span>
-                  Showing {visibleUnions.length} verified union
-                  {visibleUnions.length === 1 ? '' : 's'} in {activeRegion.name}
-                </span>
-                <span className="font-medium text-neutral-300">
-                  5 African Regions
-                </span>
-              </div>
             </div>
           </Reveal>
         </div>

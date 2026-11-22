@@ -1,7 +1,82 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Local Lufga Typography Assets */
+@font-face {
+  font-family: "Lufga";
+  src: url("/fonts/lufga/LufgaRegular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lufga";
+  src: url("/fonts/lufga/LufgaMedium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lufga";
+  src: url("/fonts/lufga/LufgaSemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lufga";
+  src: url("/fonts/lufga/LufgaBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lufga";
+  src: url("/fonts/lufga/LufgaExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Active Display Font Token (switched globally via data-font-pair) */
+  --font-display-family: "Lufga", "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-body-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Light Theme Semantic Tokens */
+  --surface-bg: #ffffff;
+  --surface-alt: #f5f5f5;
+  --surface-card: #ffffff;
+  --surface-elevated: #f7f7f7;
+  --surface-border: #e5e5e5;
+  --text-primary: #121212;
+  --text-secondary: #525252;
+  --text-muted: #737373;
+}
+
+html[data-font-pair="manrope"] {
+  --font-display-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+html.dark {
+  /* Dark Theme Semantic Tokens */
+  --surface-bg: #101114;
+  --surface-alt: #1d2025;
+  --surface-card: #181a1f;
+  --surface-elevated: #1d2025;
+  --surface-border: #2b2f36;
+  --text-primary: #ffffff;
+  --text-secondary: #b7bbc3;
+  --text-muted: #8b919d;
+}
+
 @theme {
-  /* AASU Brand Palette */
+  /* Official AASU Brand Tokens */
   --color-aasu-red: #cb3631;
   --color-aasu-red-dark: #992d29;
   --color-aasu-red-vivid: #e63428;
@@ -9,19 +84,26 @@
   --color-aasu-white: #ffffff;
   --color-aasu-offwhite: #f5f5f5;
 
-  /* Typography */
-  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  /* Theme-aware semantic colors */
+  --color-surface: var(--surface-bg);
+  --color-surface-alt: var(--surface-alt);
+  --color-surface-card: var(--surface-card);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-border-subtle: var(--surface-border);
+  --color-ink: var(--text-primary);
+  --color-ink-secondary: var(--text-secondary);
+  --color-ink-muted: var(--text-muted);
 
-  /* Layout */
-  --container-max: 80rem;
+  /* Typography */
+  --font-display: var(--font-display-family);
+  --font-sans: var(--font-body-family);
 }
 
 @layer base {
   html {
     font-family: var(--font-sans);
-    color: var(--color-aasu-black);
-    background-color: var(--color-aasu-white);
+    color: var(--text-primary);
+    background-color: var(--surface-bg);
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -31,6 +113,9 @@
     margin: 0;
     min-height: 100vh;
     overflow-x: clip;
+    background-color: var(--surface-bg);
+    color: var(--text-primary);
+    transition: background-color 200ms ease, color 200ms ease;
   }
 
   h1,

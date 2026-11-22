@@ -5,80 +5,72 @@ import { FEATURED_PUBLICATIONS } from '@/data/homepage'
 
 export function KnowledgeHubSection() {
   return (
-    <section id="knowledge-hub" className="bg-aasu-white py-20 lg:py-28">
+    <section
+      id="knowledge-hub"
+      className="border-b border-border-subtle bg-surface py-16 lg:py-22"
+    >
       <Container>
         <Reveal>
           <SectionHeading
             eyebrow="Knowledge Hub"
-            title="Ideas, Evidence and Perspectives for Africa's Future."
-            description="AASU contributes to research and policy discussions on education, students' rights and the wider challenges shaping Africa's development. Explore our research papers, policy briefs, reports, toolkits and other institutional publications."
+            title="Research, Toolkits & Publications."
             action={
-              <Button href="#knowledge-hub" variant="primary" size="md">
-                Explore the Knowledge Hub
+              <Button href="#knowledge-hub" variant="outline" size="sm">
+                Explore Knowledge Hub
               </Button>
             }
           />
         </Reveal>
 
-        <div className="mt-14 grid gap-8 md:grid-cols-3">
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
           {FEATURED_PUBLICATIONS.map((pub, idx) => (
-            <Reveal key={pub.id} delay={idx * 0.08}>
-              <article className="group flex h-full flex-col border border-neutral-200 bg-aasu-offwhite transition-all duration-200 hover:-translate-y-0.5 hover:border-aasu-black/30 hover:shadow-md">
-                {/* Original Publication Cover */}
-                <a
-                  href={pub.pdfUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block overflow-hidden bg-aasu-black p-6 pb-0"
-                >
-                  <div className="overflow-hidden shadow-lg">
-                    <img
-                      src={pub.cover}
-                      alt={pub.coverAlt}
-                      className="aspect-[3/4] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-                      loading="lazy"
-                    />
-                  </div>
-                </a>
+            <Reveal key={pub.id} delay={idx * 0.06}>
+              <a
+                href={pub.pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border-subtle bg-surface-card transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+              >
+                <div className="overflow-hidden bg-[#101114] p-5 pb-0">
+                  <img
+                    src={pub.cover}
+                    alt={pub.coverAlt}
+                    className="aspect-[3/4] w-full rounded-t-xl object-cover object-top shadow-md transition-transform duration-500 group-hover:scale-[1.03]"
+                    loading="lazy"
+                  />
+                </div>
 
-                <div className="flex flex-1 flex-col justify-between bg-aasu-white p-6">
+                <div className="flex flex-1 flex-col justify-between p-5">
                   <div>
-                    <div className="flex items-center justify-between gap-2 text-xs">
+                    <div className="flex items-center justify-between text-xs">
                       <span className="font-semibold uppercase tracking-[0.14em] text-aasu-red">
                         {pub.type}
                       </span>
-                      <span className="font-display font-bold text-aasu-black">
+                      <span className="font-display font-bold text-ink">
                         {pub.year}
                       </span>
                     </div>
-                    <h3 className="mt-3 font-display text-lg font-bold leading-snug text-aasu-black transition-colors group-hover:text-aasu-red">
-                      <a
-                        href={pub.pdfUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {pub.title}
-                      </a>
+                    <h3 className="mt-2 font-display text-base font-bold leading-snug text-ink transition-colors group-hover:text-aasu-red">
+                      {pub.title}
                     </h3>
                   </div>
 
-                  <div className="mt-6 flex items-center justify-between border-t border-neutral-100 pt-4">
-                    <a
-                      href={pub.pdfUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 font-display text-xs font-bold uppercase tracking-[0.12em] text-aasu-black transition-colors hover:text-aasu-red"
-                    >
-                      <BookOpen className="h-3.5 w-3.5 text-aasu-red" aria-hidden="true" />
-                      <span>Read Publication (PDF)</span>
-                    </a>
+                  <div className="mt-4 flex items-center justify-between border-t border-border-subtle pt-3.5 text-xs font-semibold text-ink-secondary">
+                    <span className="inline-flex items-center gap-1.5 font-display text-ink group-hover:text-aasu-red">
+                      <BookOpen
+                        className="h-3.5 w-3.5 text-aasu-red"
+                        strokeWidth={1.75}
+                        aria-hidden="true"
+                      />
+                      Read PDF
+                    </span>
                     <ArrowUpRight
-                      className="h-4 w-4 text-neutral-400 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-aasu-red"
+                      className="h-4 w-4 text-ink-muted transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-aasu-red"
                       aria-hidden="true"
                     />
                   </div>
                 </div>
-              </article>
+              </a>
             </Reveal>
           ))}
         </div>

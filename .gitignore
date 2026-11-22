@@ -49,3 +49,19 @@ coverage
 
 # TypeScript incremental build info
 *.tsbuildinfo
+
+# Local bulk raw media archives (keep only curated web assets tracked in Git)
+public/videos/
+public/images/Beach Clean up/*
+!public/images/Beach Clean up/IMG_0194.webp
+public/images/Climate Forward Summit/*
+!public/images/Climate Forward Summit/CFS-142.webp
+public/images/GGEM/*
+!public/images/GGEM/GGEC-73.webp
+public/images/Leader-Shift Summit/*
+!public/images/Leader-Shift Summit/IMG_0378.webp
+public/images/NELS 3rd Strategic Partners Meeting - AASU_Ghana/**
+!public/images/NELS 3rd Strategic Partners Meeting - AASU_Ghana/Day 1/
+!public/images/NELS 3rd Strategic Partners Meeting - AASU_Ghana/Day 1/Breakouts/
+!public/images/NELS 3rd Strategic Partners Meeting - AASU_Ghana/Day 1/Breakouts/untitled-154.webp
+

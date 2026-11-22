@@ -1,10 +1,12 @@
 import type {
   AfricaRegion,
+  HeroSlide,
   InstitutionalPartnerText,
   NavItem,
   NewsArticle,
   OfficialStatement,
   OpportunityCategory,
+  OpportunityHighlight,
   PartnerLogo,
   ProgrammeItem,
   PublicationItem,
@@ -12,14 +14,78 @@ import type {
   StrategicPriority,
 } from '@/types'
 
+export const HERO_SLIDES: HeroSlide[] = [
+  {
+    id: 'continental-voice',
+    eyebrow: 'All-Africa Students Union · Est. 1972',
+    headline: "The Continental Voice of Africa's Students",
+    subheading:
+      'Representing the interests and aspirations of African students since 1972.',
+    image: '/images/editorial/aasu-hero-asw.jpg',
+    imageAlt:
+      'All-Africa Students Union representatives on stage during Africa Skills Week alongside the African Union and Ghana flags',
+    primaryCta: { label: 'Discover AASU', href: '#at-a-glance' },
+    secondaryCta: { label: 'Explore Our Work', href: '#priorities' },
+  },
+  {
+    id: 'climate-forward',
+    eyebrow: 'Climate Forward Summit · Green Economy',
+    headline: 'Student Leadership for a Sustainable Africa',
+    subheading:
+      'Mobilising African students and partners around climate action, circular economies and green skills.',
+    image: '/images/Climate Forward Summit/CFS-142.webp',
+    imageAlt:
+      'Panelist speaking during the Climate Forward Summit on circular economy and clean energy',
+    primaryCta: { label: 'Climate & Green Skills', href: '#programmes' },
+    secondaryCta: { label: 'Knowledge Hub', href: '#knowledge-hub' },
+  },
+  {
+    id: 'leader-shift',
+    eyebrow: 'Leader-Shift Summit · Capacity Building',
+    headline: 'Empowering the Next Generation of Student Leaders',
+    subheading:
+      'Strengthening institutional capacity, civic leadership and youth participation across African campuses.',
+    image: '/images/Leader-Shift Summit/IMG_0378.webp',
+    imageAlt:
+      'Participants engaged in sessions at the AASU Leader-Shift Summit',
+    primaryCta: { label: 'Strategic Priorities', href: '#priorities' },
+    secondaryCta: { label: 'Explore Membership', href: '#membership' },
+  },
+  {
+    id: 'nels-ghana',
+    eyebrow: 'NELS 3rd Strategic Partners Meeting · Ghana',
+    headline: 'Cross-Border Cooperation in Student Governance',
+    subheading:
+      'Co-creating student leadership training, peer learning and international partnerships through NELS.',
+    image:
+      '/images/NELS 3rd Strategic Partners Meeting - AASU_Ghana/Day 1/Breakouts/untitled-154.webp',
+    imageAlt:
+      'Collaborative breakout session on partnerships during the NELS 3rd Strategic Partners Meeting in Ghana',
+    primaryCta: { label: 'Discover NELS', href: '#programmes' },
+    secondaryCta: { label: 'Our Partners', href: '#partnerships' },
+  },
+  {
+    id: 'beach-cleanup',
+    eyebrow: 'Environmental Action · Youth Mobilisation',
+    headline: 'From Policy Dialogues to Community Action',
+    subheading:
+      'African students leading grassroots environmental sustainability and coastal clean-up initiatives.',
+    image: '/images/Beach Clean up/IMG_0194.webp',
+    imageAlt:
+      'AASU student volunteers after a coastal beach clean-up sustainability drive',
+    primaryCta: { label: 'Latest from AASU', href: '#latest' },
+    secondaryCta: { label: 'Partner With AASU', href: '#partnerships' },
+  },
+]
+
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', href: '#top' },
   {
     label: 'About',
-    href: '#about',
+    href: '#at-a-glance',
     children: [
-      { label: 'Who We Are', href: '#about', description: 'Institutional identity, vision, mission and mandate' },
-      { label: 'History & Legacy', href: '#about', description: 'Founded in Kumasi in 1972' },
+      { label: 'Who We Are', href: '#at-a-glance', description: 'Institutional identity, vision, mission and mandate' },
+      { label: 'History & Legacy', href: '#at-a-glance', description: 'Founded in Kumasi in 1972' },
       { label: 'Governance', href: '#footer', description: 'Congress, Executive Committee and Secretariat' },
       { label: 'Partners & Institutional Relations', href: '#partnerships', description: 'Continental and international relations' },
     ],
@@ -31,7 +97,7 @@ export const NAV_ITEMS: NavItem[] = [
       { label: 'Our Strategic Priorities', href: '#priorities', description: 'Seven priorities guiding our continental work' },
       { label: 'Programmes & Initiatives', href: '#programmes', description: 'Flagship, ongoing and joint programmes' },
       { label: 'Campaigns & Advocacy', href: '#programmes', description: 'Student rights and education policy advocacy' },
-      { label: 'Policy Engagement & Representation', href: '#news', description: 'Continental and international policy dialogues' },
+      { label: 'Policy Engagement & Representation', href: '#latest', description: 'Continental and international policy dialogues' },
     ],
   },
   {
@@ -39,18 +105,18 @@ export const NAV_ITEMS: NavItem[] = [
     href: '#membership',
     children: [
       { label: 'Our Membership', href: '#membership', description: 'Representative network across five African regions' },
-      { label: 'Member Unions Directory', href: '#membership', description: 'Verified national and sub-national member unions' },
-      { label: 'Regional Membership', href: '#membership', description: 'North, West, Central, East and Southern Africa' },
-      { label: 'Membership & Affiliation', href: '#join', description: 'Categories, eligibility and application procedures' },
+      { label: 'Member Unions Directory', href: '#regional-explorer', description: 'Verified national and sub-national member unions' },
+      { label: 'Regional Membership', href: '#regional-explorer', description: 'North, West, Central, East and Southern Africa' },
+      { label: 'Membership & Affiliation', href: '#partnerships', description: 'Categories, eligibility and application procedures' },
     ],
   },
   {
     label: 'News & Media',
-    href: '#news',
+    href: '#latest',
     children: [
-      { label: 'Latest News', href: '#news', description: 'Institutional engagements and updates' },
+      { label: 'Latest News', href: '#latest', description: 'Institutional engagements and updates' },
       { label: 'Press Releases & Statements', href: '#statements', description: 'Official statements and public positions' },
-      { label: 'Speeches & Addresses', href: '#news', description: 'Authorised institutional remarks' },
+      { label: 'Speeches & Addresses', href: '#latest', description: 'Authorised institutional remarks' },
       { label: 'Media Centre', href: '#footer', description: 'Brand assets and press enquiries' },
     ],
   },
@@ -62,59 +128,97 @@ export const NAV_ITEMS: NavItem[] = [
 
 export const CONTINENTAL_STATS: StatItem[] = [
   { value: '54', label: 'African Countries', needsConfirmation: true },
-  { value: '85+', label: 'National & Sub-national Member Unions', needsConfirmation: true },
+  { value: '85+', label: 'Member Unions', needsConfirmation: true },
   { value: '300M+', label: 'Students Represented', needsConfirmation: true },
   { value: '1972', label: 'Year Established' },
 ]
 
+// Full approved copy preserved in `description` for future inner pages;
+// `shortDescription` powers the condensed homepage cards.
 export const STRATEGIC_PRIORITIES: StrategicPriority[] = [
   {
     number: '01',
     title: "Education & Students' Rights",
+    shortTitle: "Education & Students' Rights",
+    shortDescription: 'Equitable quality education, academic freedom and student welfare.',
     description:
       "Championing students' rights and welfare, equitable access to quality education, academic freedom and student participation in education policy and governance.",
+    icon: 'education',
+    image: '/images/editorial/aasu-au-education-2026.jpg',
+    imageAlt: 'AASU representative addressing the Innovating Education in Africa 2026 Policy Dialogue',
     href: '#priorities',
   },
   {
     number: '02',
     title: 'Capacity Building, Skills Development & Employability',
+    shortTitle: 'Skills & Employability',
+    shortDescription: 'Student leadership, institutional capacity and career readiness.',
     description:
       'Developing student leadership, strengthening institutional capacities and advancing skills, entrepreneurship and employment opportunities for African students.',
+    icon: 'skills',
+    image: '/images/Leader-Shift Summit/IMG_0378.webp',
+    imageAlt: 'Student leaders participating in the AASU Leader-Shift Summit',
     href: '#priorities',
   },
   {
     number: '03',
     title: 'Gender Equity & Social Inclusion',
+    shortTitle: 'Gender Equity & Inclusion',
+    shortDescription: 'Equal participation and inclusive policies for every student.',
     description:
       'Addressing discrimination and barriers to participation, promoting gender equality and advancing inclusive policies and opportunities for students of all backgrounds.',
+    icon: 'gender',
+    image: '/images/GGEM/GGEC-73.webp',
+    imageAlt: 'Water and Gender community outreach session during the GGEM School Tour',
     href: '#priorities',
   },
   {
     number: '04',
     title: 'Climate Action & Environmental Sustainability',
+    shortTitle: 'Climate & Sustainability',
+    shortDescription: 'Student-led climate action, sustainability and green skills.',
     description:
       'Advancing student leadership in climate action, environmental protection and sustainability, while promoting green skills and education for a changing world.',
+    icon: 'climate',
+    image: '/images/Beach Clean up/IMG_0194.webp',
+    imageAlt: 'AASU student volunteers leading a coastal beach clean-up campaign',
     href: '#priorities',
   },
   {
     number: '05',
     title: 'Migration, Mobility & Exchanges',
+    shortTitle: 'Migration & Mobility',
+    shortDescription: 'Safe student mobility, exchanges and qualification recognition.',
     description:
       'Advocating for safe and equitable student mobility, academic exchanges, recognition of qualifications and the rights and welfare of students across borders.',
+    icon: 'mobility',
+    image:
+      '/images/NELS 3rd Strategic Partners Meeting - AASU_Ghana/Day 1/Breakouts/untitled-154.webp',
+    imageAlt: 'Intercultural partnership planning at the NELS 3rd Strategic Partners Meeting in Ghana',
     href: '#priorities',
   },
   {
     number: '06',
     title: 'Democracy, Good Governance, Peace & Security',
+    shortTitle: 'Governance & Peace',
+    shortDescription: 'Democratic values, accountability and student civic participation.',
     description:
       'Promoting democratic values, accountable governance, peacebuilding and the meaningful participation of students in civic and political processes.',
+    icon: 'governance',
+    image: '/images/editorial/aasu-inauguration-2026.jpg',
+    imageAlt: 'AASU democratic student leadership at the 2026 Inauguration and Honours Ceremony',
     href: '#priorities',
   },
   {
     number: '07',
     title: 'Pan-Africanism & African Culture',
+    shortTitle: 'Pan-Africanism & Culture',
+    shortDescription: 'Continental unity, student solidarity and shared heritage.',
     description:
       "Advancing African unity, student solidarity and continental integration while celebrating Africa's cultural heritage, diversity and shared identity.",
+    icon: 'panafricanism',
+    image: '/images/editorial/aasu-hero-asw.jpg',
+    imageAlt: 'Pan-African student representation alongside African Union and national flags',
     href: '#priorities',
   },
 ]
@@ -211,87 +315,93 @@ export const FEATURED_PROGRAMMES: ProgrammeItem[] = [
   {
     id: 'greening-skills',
     title: 'Greening Skills and Qualifications in Africa',
-    category: 'ACQF & European Training Foundation',
+    category: 'ACQF & ETF Partnership',
+    shortDescription:
+      'Advancing green skills, qualification recognition and lifelong learning for sustainable economies.',
     description:
       'AASU has worked with the European Training Foundation and partners under the African Continental Qualifications Framework initiative to advance discussions on green skills, recognition of qualifications and lifelong learning.',
     secondaryText:
       "The work brings the experiences of learners, educators, employers and communities into conversations about Africa's transition towards sustainable economies.",
     ctaLabel: 'Explore the Initiative',
     href: '#knowledge-hub',
-    image: '/images/publications/acqf-concept-document.png',
-    imageAlt: 'Greening Skills and Qualifications in Africa — ACQF and AASU Concept Document cover',
+    image: '/images/Climate Forward Summit/CFS-142.webp',
+    imageAlt: 'Climate Forward Summit panel on green skills and circular economy in Africa',
     featured: true,
   },
   {
     id: 'nels',
     title: 'Next Level Skills for Student Leaders',
     category: 'NELS Initiative',
+    shortDescription:
+      'Strengthening student leadership through training, peer learning and international cooperation.',
     description:
       'Through the NELS initiative, AASU and its partners are contributing to the development of student leadership through training, peer learning, research and international cooperation.',
     ctaLabel: 'Discover NELS',
     href: '#partnerships',
-    image: '/images/editorial/aasu-nels-workshop.jpg',
-    imageAlt: 'Participants collaborating during a Next Level Skills for Student Leaders (NELS) training workshop',
+    image:
+      '/images/NELS 3rd Strategic Partners Meeting - AASU_Ghana/Day 1/Breakouts/untitled-154.webp',
+    imageAlt: 'Partners collaborating during the NELS 3rd Strategic Partners Meeting in Ghana',
   },
   {
     id: 'inspire-tour',
     title: 'AASU Inspire Tour',
-    category: 'Pre-Tertiary & Campus Outreach',
+    category: 'Schools & Campus Outreach',
+    shortDescription:
+      'Taking student leadership, mentorship and educational engagement directly to school communities.',
     description:
       'Taking student leadership, mentorship and educational engagement directly to schools and student communities.',
     ctaLabel: 'Explore the Inspire Tour',
-    href: '#news',
-    image: '/images/editorial/aasu-inspire-tour.jpg',
-    imageAlt: 'Official AASU Inspire Tour campaign visual for pre-tertiary schools',
-    imageNote: 'Official campaign graphic — replace with approved field photography when available.',
+    href: '#latest',
+    image: '/images/GGEM/GGEC-73.webp',
+    imageAlt: 'AASU outreach speaker engaging school and community participants during a school tour',
   },
 ]
 
 export const FEATURED_NEWS: NewsArticle = {
   id: 'news-innovating-education-africa-2026-debate',
-  category: 'Education Policy & Financing',
+  category: 'Education Policy',
   date: '20 July 2026',
-  title: 'AASU Champions Sustainable Financing Reforms at Innovating Education in Africa 2026 Policy Dialogue',
+  title: 'AASU Champions Sustainable Financing Reforms at Innovating Education in Africa 2026',
   excerpt:
-    'AASU led a high-level Oxford-style debate examining essential education financing reforms needed to realistically achieve the African Union Decade of Education and Skills (2025–2034) targets in Addis Ababa.',
+    'AASU led a high-level Oxford-style debate examining education financing reforms for the AU Decade of Education and Skills (2025–2034).',
   image: '/images/editorial/aasu-au-education-2026.jpg',
   imageAlt: 'AASU representative speaking at the Innovating Education in Africa 2026 Policy Dialogue at the African Union',
-  href: '#news',
+  href: '#latest',
 }
 
 export const RECENT_NEWS: NewsArticle[] = [
   {
     id: 'news-times-higher-education-sustainability-2026',
-    category: 'Climate Action & Sustainability',
+    category: 'Climate & Sustainability',
     date: '7 July 2026',
-    title: 'AASU Featured in Maiden Times Higher Education Sustainability Impact Ratings 2026',
+    title: 'AASU Featured in Times Higher Education Sustainability Impact Ratings 2026',
     excerpt:
-      'Launched at the Global Sustainable Development Congress (GSDC) 2026, the feature highlights AASU’s mobilisation of African students for climate action and sustainable development.',
+      'Highlighting AASU’s mobilisation of African students for climate action and sustainable development at GSDC 2026.',
     image: '/images/editorial/aasu-the-sustainability-2026.jpeg',
     imageAlt: 'AASU feature page in the Times Higher Education Sustainability Impact Ratings 2026 publication',
-    href: '#news',
+    href: '#latest',
   },
   {
     id: 'news-adolescence-360-health-2026',
-    category: 'Student Welfare & Outreach',
+    category: 'Student Welfare',
     date: '24 June 2026',
-    title: 'AASU Engages JHS Students in Winneba on Menstrual Hygiene and Reproductive Health',
+    title: 'AASU Engages JHS Students in Winneba on Adolescent Health & Wellbeing',
     excerpt:
-      'Through the Adolescence 360 Health Outreach Project, AASU created a safe and interactive space for students at A.M.E. Zion "D" JHS, Winneba.',
+      'Through Adolescence 360, AASU hosted interactive outreach sessions at A.M.E. Zion "D" JHS, Winneba.',
     image: '/images/editorial/aasu-adol-360-winneba.png',
     imageAlt: 'AASU Adolescence 360 Health Outreach Project team and students in Winneba',
-    href: '#news',
+    href: '#latest',
   },
   {
     id: 'news-african-child-day-liberia-2026',
-    category: "Education & Students' Rights",
+    category: "Students' Rights",
     date: '22 June 2026',
-    title: 'AASU Convenes High-Level Strategic Dialogue in Liberia for Day of the African Child 2026',
+    title: 'AASU Convenes Strategic Dialogue in Liberia for Day of the African Child 2026',
     excerpt:
-      'Bringing together student leaders, government officials and civil society in Liberia to advance child rights, safe learning environments and WASH access.',
+      'Student leaders, government officials and civil society convened on child rights and safe learning environments.',
     image: '/images/editorial/aasu-african-child-2026.png',
     imageAlt: 'AASU Executive Committee representative addressing the Day of the African Child 2026 Strategic Dialogue in Liberia',
-    href: '#news',
+    href: '#latest',
   },
 ]
 
@@ -303,7 +413,7 @@ export const OFFICIAL_STATEMENTS: OfficialStatement[] = [
     category: 'Official Statement',
     title: 'AASU Calls for Enhanced Protection of African Students in South Africa',
     excerpt:
-      'The All-Africa Students Union is closely monitoring developments in the Republic of South Africa and calls for urgent safeguards for African students and higher education communities.',
+      'Calling for urgent safeguards for African students and higher education communities.',
     href: '#statements',
   },
   {
@@ -313,8 +423,49 @@ export const OFFICIAL_STATEMENTS: OfficialStatement[] = [
     category: 'Advocacy Statement',
     title: 'AASU Demands Urgent Action to End the Abduction of Students and Educators in Nigeria',
     excerpt:
-      'Expressing deep concern over the abduction of pupils and teachers in Oyo State and continuing insecurity affecting educational institutions.',
+      'Expressing deep concern over insecurity affecting schools and communities.',
     href: '#statements',
+  },
+]
+
+export const VERIFIED_OPPORTUNITIES: OpportunityHighlight[] = [
+  {
+    id: 'event-aau-summit-2026',
+    type: 'Event',
+    title: "AAU African Students' Leadership Summit 2026",
+    dateLabel: '17–19 Aug 2026',
+    locationOrMeta: 'Cairo, Egypt · AAU & AASU',
+    ctaLabel: 'Summit details',
+    href: 'https://pay.aau.org/sls-cairo-2026',
+    external: true,
+  },
+  {
+    id: 'event-russia-africa-scientists-2026',
+    type: 'Opportunity',
+    title: 'Russia–Africa Forum-Competition of Young Scientists 2026',
+    dateLabel: '12–17 Oct 2026',
+    locationOrMeta: 'Under the auspices of UNESCO',
+    ctaLabel: 'View call',
+    href: 'https://bit.ly/RAFYS-26',
+    external: true,
+  },
+  {
+    id: 'pathway-scholarships',
+    type: 'Pathway',
+    title: 'Scholarships & Fellowships',
+    dateLabel: 'Ongoing',
+    locationOrMeta: 'Academic, research & leadership funding',
+    ctaLabel: 'Browse opportunities',
+    href: '#opportunities',
+  },
+  {
+    id: 'pathway-training',
+    type: 'Pathway',
+    title: 'Training, Exchanges & Internships',
+    dateLabel: 'Ongoing',
+    locationOrMeta: 'Mobility, peer learning & professional growth',
+    ctaLabel: 'Explore programmes',
+    href: '#programmes',
   },
 ]
 
@@ -351,6 +502,7 @@ export const FEATURED_PUBLICATIONS: PublicationItem[] = [
   },
 ]
 
+// Preserved for inner pages
 export const OPPORTUNITY_CATEGORIES: OpportunityCategory[] = [
   {
     id: 'events-conferences',
@@ -399,25 +551,25 @@ export const STRATEGIC_INSTITUTIONAL_PARTNERS: InstitutionalPartnerText[] = [
 
 export const FOOTER_LINKS = {
   explore: [
-    { label: 'About AASU', href: '#about' },
+    { label: 'About AASU', href: '#at-a-glance' },
     { label: 'What We Do', href: '#priorities' },
     { label: 'Membership', href: '#membership' },
-    { label: 'News & Media', href: '#news' },
+    { label: 'News & Media', href: '#latest' },
     { label: 'Events', href: '#opportunities' },
     { label: 'Knowledge Hub', href: '#knowledge-hub' },
     { label: 'Opportunities', href: '#opportunities' },
   ],
   institutional: [
-    { label: 'History & Legacy', href: '#about' },
-    { label: 'Governance', href: '#about' },
-    { label: 'Executive Committee', href: '#about' },
+    { label: 'History & Legacy', href: '#at-a-glance' },
+    { label: 'Governance', href: '#at-a-glance' },
+    { label: 'Executive Committee', href: '#at-a-glance' },
     { label: 'Secretariat', href: '#footer' },
     { label: 'Partners & Institutional Relations', href: '#partnerships' },
   ],
   connect: [
     { label: 'Contact Us', href: '#footer' },
     { label: 'Partner With AASU', href: '#partnerships' },
-    { label: 'Student Rights & Support', href: '#join' },
+    { label: 'Student Rights & Support', href: '#partnerships' },
   ],
   social: [
     { label: 'Facebook', href: 'https://www.facebook.com/AASU1972' },

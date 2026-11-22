@@ -6,7 +6,7 @@ interface SectionHeadingProps {
   title: string
   description?: string
   action?: ReactNode
-  theme?: 'light' | 'dark'
+  forceDark?: boolean
   className?: string
 }
 
@@ -15,28 +15,23 @@ export function SectionHeading({
   title,
   description,
   action,
-  theme = 'light',
+  forceDark = false,
   className,
 }: SectionHeadingProps) {
-  const isDark = theme === 'dark'
-
   return (
     <div
       className={cn(
-        'flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between',
+        'flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between',
         className,
       )}
     >
-      <div className="max-w-3xl">
-        <div className="flex items-center gap-3">
-          <span
-            className="h-0.5 w-8 bg-aasu-red"
-            aria-hidden="true"
-          />
+      <div className="max-w-2xl">
+        <div className="flex items-center gap-2.5">
+          <span className="h-0.5 w-7 bg-aasu-red" aria-hidden="true" />
           <span
             className={cn(
               'text-xs font-semibold uppercase tracking-[0.18em]',
-              isDark ? 'text-neutral-300' : 'text-aasu-red',
+              forceDark ? 'text-neutral-300' : 'text-aasu-red',
             )}
           >
             {eyebrow}
@@ -44,8 +39,8 @@ export function SectionHeading({
         </div>
         <h2
           className={cn(
-            'mt-4 font-display text-3xl font-extrabold leading-[1.12] tracking-tight sm:text-4xl lg:text-[2.65rem]',
-            isDark ? 'text-aasu-white' : 'text-aasu-black',
+            'mt-3 font-display text-3xl font-bold leading-[1.1] tracking-tight sm:text-4xl lg:text-[2.5rem]',
+            forceDark ? 'text-aasu-white' : 'text-ink',
           )}
         >
           {title}
@@ -53,8 +48,8 @@ export function SectionHeading({
         {description && (
           <p
             className={cn(
-              'mt-4 max-w-2xl text-base leading-relaxed sm:text-lg',
-              isDark ? 'text-neutral-300' : 'text-neutral-600',
+              'mt-3 max-w-xl text-base leading-relaxed',
+              forceDark ? 'text-neutral-300' : 'text-ink-secondary',
             )}
           >
             {description}

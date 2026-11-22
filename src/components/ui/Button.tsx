@@ -8,18 +8,18 @@ const variantStyles: Record<ButtonVariant, string> = {
   primary:
     'bg-aasu-red text-aasu-white hover:bg-aasu-red-dark border border-transparent shadow-xs',
   dark:
-    'bg-aasu-black text-aasu-white hover:bg-neutral-800 border border-transparent',
+    'bg-aasu-black text-aasu-white hover:bg-neutral-800 dark:bg-aasu-white dark:text-aasu-black dark:hover:bg-neutral-200 border border-transparent',
   outline:
-    'bg-transparent text-aasu-black border border-aasu-black/25 hover:border-aasu-black hover:bg-aasu-black hover:text-aasu-white',
+    'bg-transparent text-ink border border-border-subtle hover:border-ink hover:bg-ink hover:text-surface',
   outlineLight:
-    'bg-transparent text-aasu-white border border-aasu-white/40 hover:border-aasu-white hover:bg-aasu-white hover:text-aasu-black',
+    'bg-transparent text-aasu-white border border-aasu-white/45 hover:border-aasu-white hover:bg-aasu-white hover:text-aasu-black',
   ghost:
-    'bg-transparent text-aasu-black hover:text-aasu-red border border-transparent px-0',
+    'bg-transparent text-ink hover:text-aasu-red border border-transparent px-0',
 }
 
 const sizeStyles: Record<ButtonSize, string> = {
   sm: 'px-4 py-2 text-xs',
-  md: 'px-5 py-3 text-sm',
+  md: 'px-5 py-2.5 text-sm',
   lg: 'px-6 py-3.5 text-sm sm:text-base',
 }
 
@@ -50,7 +50,7 @@ export function Button({
   ...props
 }: ButtonProps) {
   const classes = cn(
-    'inline-flex items-center justify-center gap-2 font-display font-semibold tracking-tight transition-colors duration-200 cursor-pointer disabled:opacity-50 disabled:pointer-events-none',
+    'inline-flex items-center justify-center gap-2 rounded-full font-display font-semibold tracking-tight transition-colors duration-200 cursor-pointer disabled:opacity-50 disabled:pointer-events-none',
     variantStyles[variant],
     sizeStyles[size],
     className,
