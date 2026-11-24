@@ -7,12 +7,15 @@ import {
   AFRICA_REGIONS,
   FEATURED_NEWS,
   FEATURED_PROGRAMMES,
-  FEATURED_PUBLICATIONS,
   OFFICIAL_STATEMENTS,
   RECENT_NEWS,
   STRATEGIC_PRIORITIES,
   VERIFIED_OPPORTUNITIES,
 } from '@/data/homepage'
+import {
+  getPublicPublications,
+  PRIORITY_LABELS,
+} from '@/data/publications'
 import {
   DISCOVERY_FEATURED,
   DISCOVERY_QUICK_GROUPS,
@@ -30,11 +33,18 @@ interface IndexedItem {
   category: string
   title: string
   subtitle?: string
+  searchText?: string
   href: string
   external?: boolean
 }
 
-const SUGGESTED_QUERIES = ['Greening Skills', 'NELS', 'Ghana', 'Toolkit', 'Statements']
+const SUGGESTED_QUERIES = [
+  'Education Financing',
+  'Green Skills',
+  'Student Rights',
+  'NELS',
+  'Annual Report',
+]
 
 export function SearchDiscoveryModal({ onClose }: SearchDiscoveryModalProps) {
   const navigate = useNavigate()
@@ -98,13 +108,18 @@ export function SearchDiscoveryModal({ onClose }: SearchDiscoveryModalProps) {
       external: o.external,
     }))
 
-    const pubItems: IndexedItem[] = FEATURED_PUBLICATIONS.map((pub) => ({
+    const pubItems: IndexedItem[] = getPublicPublications().map((pub) => ({
       id: `pub-${pub.id}`,
-      category: 'Knowledge Hub',
+      category: `Knowledge Hub · ${pub.subcategory}`,
       title: `${pub.title} (${pub.year})`,
-      subtitle: `${pub.type} · PDF`,
-      href: pub.pdfUrl,
-      external: true,
+      subtitle: pub.summary,
+      searchText: [
+        pub.keywords.join(' '),
+        pub.publisher,
+        pub.language,
+        pub.relatedPriorityIds.map((id) => PRIORITY_LABELS[id] ?? id).join(' '),
+      ].join(' '),
+      href: `/knowledge-hub/publications/${pub.slug}`,
     }))
 
     const unionItems: IndexedItem[] = AFRICA_REGIONS.flatMap((region) =>
@@ -133,13 +148,12 @@ export function SearchDiscoveryModal({ onClose }: SearchDiscoveryModalProps) {
 
   const searchResults = useMemo(() => {
     if (!trimmedQuery) return []
+    const tokens = trimmedQuery.split(/\s+/).filter(Boolean)
     return indexedItems
-      .filter(
-        (item) =>
-          item.title.toLowerCase().includes(trimmedQuery) ||
-          item.category.toLowerCase().includes(trimmedQuery) ||
-          (item.subtitle?.toLowerCase().includes(trimmedQuery) ?? false),
-      )
+      .filter((item) => {
+        const hay = `${item.title} ${item.category} ${item.subtitle ?? ''} ${item.searchText ?? ''}`.toLowerCase()
+        return tokens.every((token) => hay.includes(token))
+      })
       .slice(0, 8)
   }, [indexedItems, trimmedQuery])
 

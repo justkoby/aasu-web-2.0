@@ -193,13 +193,13 @@ export function Navbar() {
                 )}
               </button>
 
-              <a
-                href="#footer"
+              <AppLink
+                href="/contact"
                 onClick={closeMegaMenu}
                 className="hidden shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-aasu-red px-5 py-2.5 font-display text-[13.5px] font-medium tracking-tight text-aasu-white transition-colors hover:bg-aasu-red-dark md:inline-flex"
               >
                 Contact
-              </a>
+              </AppLink>
 
               <button
                 type="button"
@@ -383,20 +383,20 @@ export function Navbar() {
               </ul>
 
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                <a
-                  href="#membership"
+                <AppLink
+                  href="/membership"
                   onClick={() => setMobileOpen(false)}
                   className="inline-flex w-full items-center justify-center whitespace-nowrap rounded-full border border-ink px-5 py-3 font-display text-sm font-medium text-ink transition-colors hover:bg-ink hover:text-surface"
                 >
                   Explore Membership
-                </a>
-                <a
-                  href="#footer"
+                </AppLink>
+                <AppLink
+                  href="/contact"
                   onClick={() => setMobileOpen(false)}
                   className="inline-flex w-full items-center justify-center whitespace-nowrap rounded-full bg-aasu-red px-5 py-3 font-display text-sm font-medium text-aasu-white transition-colors hover:bg-aasu-red-dark"
                 >
                   Contact AASU
-                </a>
+                </AppLink>
               </div>
             </div>
           </motion.div>

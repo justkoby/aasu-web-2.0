@@ -189,24 +189,24 @@ export const MEGA_MENU_CATEGORIES: MegaMenuCategory[] = [
   {
     id: 'membership',
     label: 'Membership',
-    href: '#membership',
+    href: '/membership',
     groups: [
       {
         heading: 'Network & Regions',
         links: [
           {
             label: 'Our Membership',
-            href: '#membership',
+            href: '/membership/our-membership',
             description: 'Representative structure and continental reach',
           },
           {
             label: 'Member Unions Directory',
-            href: '#regional-explorer',
+            href: '/membership/member-unions',
             description: 'Searchable directory of verified member unions',
           },
           {
-            label: 'Regional Membership (5 Regions)',
-            href: '#regional-explorer',
+            label: 'Regional Membership',
+            href: '/membership/regions',
             description: 'North, West, Central, East & Southern Africa',
           },
         ],
@@ -216,12 +216,12 @@ export const MEGA_MENU_CATEGORIES: MegaMenuCategory[] = [
         links: [
           {
             label: 'Membership & Affiliation',
-            href: '#join',
+            href: '/membership/affiliation',
             description: 'Categories, eligibility and application procedures',
           },
           {
             label: 'Member Services',
-            href: '#join',
+            href: '/membership/services',
             description: 'Institutional support, coordination & guidance',
           },
         ],
@@ -229,52 +229,63 @@ export const MEGA_MENU_CATEGORIES: MegaMenuCategory[] = [
     ],
     featured: [
       {
-        tag: 'Regional Explorer',
-        title: 'Across Borders. United in Purpose.',
+        tag: 'Continental Network',
+        title: 'One Continent. A United Student Voice.',
         description:
           'Explore verified national and sub-national student unions across all five African regions.',
-        href: '#regional-explorer',
+        href: '/membership/member-unions',
+      },
+      {
+        tag: 'Regional Explorer',
+        title: 'Five Regions Across Africa',
+        description:
+          'Browse North, West, Central, East and Southern Africa regional hubs and leadership.',
+        href: '/membership/regions',
       },
     ],
   },
   {
     id: 'explore',
     label: 'Explore',
-    href: '#latest',
+    href: '/news',
     groups: [
       {
         heading: 'News & Media',
         links: [
-          { label: 'Latest News', href: '#latest' },
-          { label: 'Press Releases & Statements', href: '#statements' },
-          { label: 'Speeches & Addresses', href: '#latest' },
-          { label: 'Media Gallery & Media Centre', href: '#footer' },
+          { label: 'Latest News', href: '/news' },
+          { label: 'Press Releases & Statements', href: '/news/press-releases' },
+          { label: 'Speeches & Addresses', href: '/news/speeches' },
+          { label: 'Media Gallery', href: '/news/gallery' },
+          { label: 'Media Centre', href: '/news/media-centre' },
         ],
       },
       {
         heading: 'Events',
         links: [
-          { label: 'Events Calendar', href: '#opportunities' },
-          { label: 'Major Summits & Conferences', href: '#opportunities' },
-          { label: 'Past Events & Highlights', href: '#latest' },
+          { label: 'Events Calendar', href: '/events' },
+          { label: 'Major Summits & Conferences', href: '/events/summits-conferences' },
+          { label: 'Past Events & Highlights', href: '/events/past' },
         ],
       },
       {
         heading: 'Knowledge Hub',
         links: [
-          { label: 'Knowledge Hub Overview', href: '#knowledge-hub' },
-          { label: 'Research & Policy Papers', href: '#knowledge-hub' },
-          { label: 'Reports & Annual Reports', href: '#knowledge-hub' },
-          { label: 'Toolkits, Guides & Institutional Docs', href: '#knowledge-hub' },
+          { label: 'Knowledge Hub Overview', href: '/knowledge-hub' },
+          { label: 'Research & Policy Papers', href: '/knowledge-hub/research' },
+          { label: 'Reports & Annual Reports', href: '/knowledge-hub/reports' },
+          { label: 'Policy Briefs & Position Papers', href: '/knowledge-hub/policy-briefs' },
+          { label: 'Toolkits & Guides', href: '/knowledge-hub/resources' },
+          { label: 'Institutional Documents', href: '/knowledge-hub/institutional-documents' },
         ],
       },
       {
         heading: 'Opportunities',
         links: [
-          { label: 'Opportunities Portal', href: '#opportunities' },
-          { label: 'Scholarships & Fellowships', href: '#opportunities' },
-          { label: 'Conferences, Exchanges & Training', href: '#opportunities' },
-          { label: 'Internships, Volunteering & Careers', href: '#opportunities' },
+          { label: 'Opportunities Portal', href: '/opportunities' },
+          { label: 'Scholarships & Fellowships', href: '/opportunities/scholarships-fellowships' },
+          { label: 'Conferences, Exchanges & Training', href: '/opportunities/conferences-training' },
+          { label: 'Internships & Volunteering', href: '/opportunities/internships-volunteering' },
+          { label: 'Careers at AASU', href: '/opportunities/careers' },
         ],
       },
     ],
@@ -284,7 +295,7 @@ export const MEGA_MENU_CATEGORIES: MegaMenuCategory[] = [
         title: 'Sustainable Financing Reforms at Innovating Education in Africa 2026',
         description:
           'AASU led a high-level Oxford-style debate supporting the AU Decade of Education and Skills (2025-2034).',
-        href: '#latest',
+        href: '/news/innovating-education-africa-2026-debate',
       },
       {
         tag: '2026 Toolkit · PDF',
@@ -302,10 +313,12 @@ export const DISCOVERY_QUICK_GROUPS: DiscoveryQuickGroup[] = [
   {
     category: 'Institutional',
     links: [
-      { label: 'About AASU & History (1972)', href: '#at-a-glance' },
-      { label: 'Seven Strategic Priorities', href: '#priorities' },
-      { label: 'Regional Member Unions', href: '#regional-explorer' },
-      { label: 'Partner With AASU', href: '#partnerships' },
+      { label: 'About AASU & History (1972)', href: '/about' },
+      { label: 'Seven Strategic Priorities', href: '/what-we-do/strategic-priorities' },
+      { label: 'Member Unions Directory', href: '/membership/member-unions' },
+      { label: 'Regional Membership (5 Regions)', href: '/membership/regions' },
+      { label: 'Membership & Affiliation', href: '/membership/affiliation' },
+      { label: 'Partner With AASU', href: '/about/partners' },
     ],
   },
   {
@@ -314,9 +327,12 @@ export const DISCOVERY_QUICK_GROUPS: DiscoveryQuickGroup[] = [
       { label: 'Greening Skills & Qualifications (ACQF)', href: '#programmes' },
       { label: 'Next Level Skills for Student Leaders (NELS)', href: '#programmes' },
       { label: 'AASU Inspire Tour', href: '#programmes' },
-      { label: 'Knowledge Hub & 2026 Publications', href: '#knowledge-hub' },
-      { label: 'Official Statements & Press Releases', href: '#statements' },
-      { label: 'Events, Scholarships & Fellowships', href: '#opportunities' },
+      { label: 'Knowledge Hub & Publications', href: '/knowledge-hub' },
+      { label: 'Official Statements & Press Releases', href: '/news/press-releases' },
+      { label: 'Media Gallery & Media Centre', href: '/news/gallery' },
+      { label: 'Events Calendar & Summits', href: '/events' },
+      { label: 'Opportunities Portal & Internships', href: '/opportunities' },
+      { label: 'Contact & Student Support', href: '/contact' },
     ],
   },
 ]

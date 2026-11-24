@@ -77,6 +77,7 @@ export interface GovernanceDocument {
   year: string
   description: string
   fileUrl?: string
+  cover?: string
   placeholderStatus?: string
 }
 

@@ -1,4 +1,5 @@
 export { useFontExperiment } from './useFontExperiment'
 export type { FontPair } from './useFontExperiment'
+export { usePageMeta } from './usePageMeta'
 export { useTheme } from './useTheme'
 export type { Theme } from './useTheme'

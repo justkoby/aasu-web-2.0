@@ -167,7 +167,7 @@ export function MembershipSection() {
                   {visibleUnions.length} verified union
                   {visibleUnions.length === 1 ? '' : 's'} in {activeRegion.name}
                 </span>
-                <Button href="#partnerships" variant="primary" size="sm">
+                <Button href="/membership/member-unions" variant="primary" size="sm">
                   <span>Explore Full Directory</span>
                   <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                 </Button>

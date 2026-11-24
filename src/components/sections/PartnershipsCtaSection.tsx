@@ -16,7 +16,7 @@ export function PartnershipsCtaSection() {
             title="Partnering for the Future of African Education."
             description="Collaborating with governments, the African Union, UNESCO, universities and international partners."
             action={
-              <Button href="/about/partners" variant="outline" size="sm">
+              <Button href="/contact/partner" variant="outline" size="sm">
                 Partner With AASU
               </Button>
             }
@@ -84,7 +84,7 @@ export function PartnershipsCtaSection() {
 
             <div className="flex flex-wrap items-center gap-3.5">
               <Button
-                href="#membership"
+                href="/membership"
                 variant="dark"
                 size="lg"
                 className="bg-aasu-white text-aasu-black hover:bg-neutral-100 dark:bg-aasu-white dark:text-aasu-black dark:hover:bg-neutral-200"
@@ -92,7 +92,7 @@ export function PartnershipsCtaSection() {
                 <span>Explore Membership</span>
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Button>
-              <Button href="#footer" variant="outlineLight" size="lg">
+              <Button href="/contact" variant="outlineLight" size="lg">
                 Get in Touch
               </Button>
             </div>

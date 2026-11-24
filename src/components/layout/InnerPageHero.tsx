@@ -63,11 +63,11 @@ export function InnerPageHero({
               fetchPriority="high"
             />
             <div
-              className="absolute inset-0 bg-gradient-to-r from-[#101114]/92 via-[#101114]/70 to-[#101114]/35"
+              className="absolute inset-0 bg-gradient-to-r from-[#101114]/84 via-[#101114]/45 to-transparent"
               aria-hidden="true"
             />
             <div
-              className="absolute inset-0 bg-gradient-to-t from-[#101114] via-[#101114]/25 to-[#101114]/45"
+              className="absolute inset-0 bg-gradient-to-t from-[#101114]/90 via-[#101114]/15 to-[#101114]/25"
               aria-hidden="true"
             />
           </motion.div>
